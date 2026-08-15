@@ -1,19 +1,36 @@
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterDerivedStat))]
+[RequireComponent(typeof(PlayerEquipment))]
 public class Player : Character
 {
-    public PlayerOnlyDerivedStats playerOnlyDerivedStats;
+    [SerializeField] PlayerEquipment playerEquipment;
 
     protected override void Awake()
     {
-        playerOnlyDerivedStats = new PlayerOnlyDerivedStats();
+        base.Awake();
+        playerEquipment = GetComponent<PlayerEquipment>();
+    }
+
+    private void OnEnable()
+    {
+        playerEquipment.onEquipmentChange += OnEquipmentChange;
+    }
+
+    private void OnDisable()
+    {
+        playerEquipment.onEquipmentChange -= OnEquipmentChange;
     }
 
     void Start()
     {
-        commonDerivedStats.CalculateOffensiveStats();
-        commonDerivedStats.CalculateDefensiveStats(playerOnlyDerivedStats);
-        commonDerivedStats.CalculateOtherStats(playerOnlyDerivedStats);
+        playerEquipment.CalculateLastStat(baseStats);
+        derivedStats.CalculatePlayerStat();
+    }
+
+    void OnEquipmentChange(Equipment equipment, bool isEquipped)
+    {
+        playerEquipment.CalculateLastStat(baseStats);
+        derivedStats.CalculatePlayerStat();
     }
 }

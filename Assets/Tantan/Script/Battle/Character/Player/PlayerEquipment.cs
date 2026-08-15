@@ -1,4 +1,5 @@
 using AYellowpaper.SerializedCollections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerEquipment : MonoBehaviour
@@ -6,7 +7,40 @@ public class PlayerEquipment : MonoBehaviour
     [SerializedDictionary("Equipment Type", "Equipment")]
     public SerializedDictionary<EquipmentType, Equipment> statModifiers;
 
-    public void AddStatModifier(Equipment equipment) => statModifiers.Add(equipment.type, equipment);
+    public delegate void OnEquipmentChange(Equipment equipment, bool equipped);
+    public event OnEquipmentChange onEquipmentChange;
 
-    public void RemoveStatModifier(EquipmentType equipmentType) => statModifiers.Remove(equipmentType);
+    public void AddStatModifier(Equipment equipment)
+    {
+        statModifiers[equipment.type] = equipment;
+        onEquipmentChange?.Invoke(equipment, true);
+    }
+
+    public void RemoveStatModifier(EquipmentType equipmentType)
+    {
+        if (!statModifiers.TryGetValue(equipmentType, out Equipment equipment))
+            return;
+
+        statModifiers.Remove(equipmentType);
+        onEquipmentChange?.Invoke(equipment, false);
+    }
+
+    public void CalculateLastStat(CharacterStats baseStats)
+    {
+        baseStats.ResetModifier();
+
+        foreach (Equipment equipment in statModifiers.Values)
+        {
+            if (equipment == null)
+                continue;
+
+            foreach (var modifier in equipment.stats.statBonuses)
+            {
+                StatType statType = modifier.Key;
+                int statValue = modifier.Value;
+
+                baseStats.ModifyStat(statType,statValue);
+            }
+        }
+    }
 }

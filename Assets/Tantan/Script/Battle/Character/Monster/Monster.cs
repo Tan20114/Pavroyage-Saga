@@ -4,7 +4,6 @@ public class Monster : Character
 {
     private void Start()
     {
-        commonDerivedStats.CalculateOffensiveStats();
-        commonDerivedStats.CalculateDefensiveStats();
+        derivedStats.CalculateStat();
     }
 }

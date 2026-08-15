@@ -4,55 +4,68 @@ using UnityEngine;
 public class CharacterDerivedStat : MonoBehaviour
 {
     CharacterStats baseStats;
-    public CommonDerivedStats commonDerivedStats;
+    public CommonDerivedStats derivedStats;
 
     private void Awake()
     {
         baseStats = GetComponent<CharacterStats>();
-        commonDerivedStats = new CommonDerivedStats();
+        derivedStats = new CommonDerivedStats();
     }
 
     #region Stat Calculations
+    public void CalculatePlayerStat()
+    {
+        CalculateOffensiveStats();
+        CalculatePlayerDefensiveStats();
+        CalculateOtherStats();
+    }
+
+    public void CalculateStat()
+    {
+        CalculateOffensiveStats();
+        CalculateDefensiveStats();
+    }
+
     #region Offensive Stats
     void CalculatePhysicalDamage()
     {
-        int strength = baseStats.Strength;
-        int dexterity = baseStats.Dexterity;
-        int intelligence = baseStats.Intelligence;
-        commonDerivedStats.physicalDamage = strength + (0.75f * dexterity) + (0.5f * intelligence);
+        int strength = baseStats.GetStat(StatType.STR);
+        int dexterity = baseStats.GetStat(StatType.DEX);
+        int intelligence = baseStats.GetStat(StatType.INT);
+        derivedStats.physicalDamage = strength + (0.75f * dexterity) + (0.5f * intelligence);
     }
 
     void CalculateMagicDamage()
     {
-        int intelligence = baseStats.Intelligence;
-        commonDerivedStats.magicDamage = intelligence;
+        int intelligence = baseStats.GetStat(StatType.INT);
+        derivedStats.magicDamage = intelligence;
     }
 
     void CalculateCriticalChance()
     {
-        int strength = baseStats.Strength;
-        int dexterity = baseStats.Dexterity;
-        int luck = baseStats.Luck;
-        int intelligence = baseStats.Intelligence;
-        commonDerivedStats.criticalChance = (0.12f * strength) + (0.15f * dexterity) + (0.25f * luck) + (0.1f * intelligence);
+        int strength = baseStats.GetStat(StatType.STR);
+        int dexterity = baseStats.GetStat(StatType.DEX);
+        int luck = baseStats.GetStat(StatType.LCK);
+        int intelligence = baseStats.GetStat(StatType.INT);
+        derivedStats.criticalChance = (0.12f * strength) + (0.15f * dexterity) + (0.25f * luck) + (0.1f * intelligence);
     }
 
     void CalculateCriticalDamage()
     {
-        int strength = baseStats.Strength;
-        int dexterity = baseStats.Dexterity;
-        int intelligence = baseStats.Intelligence;
-        int luck = baseStats.Luck;
-        commonDerivedStats.criticalDamage = (0.2f * strength) + (0.15f * dexterity) + (0.1f * intelligence) + (0.35f * luck);
+        int strength = baseStats.GetStat(StatType.STR);
+        int dexterity = baseStats.GetStat(StatType.DEX);
+        int intelligence = baseStats.GetStat(StatType.INT);
+        int luck = baseStats.GetStat(StatType.LCK);
+        derivedStats.criticalDamage = (0.2f * strength) + (0.15f * dexterity) + (0.1f * intelligence) + (0.35f * luck);
     }
 
     void CalculateSpeed()
     {
-        int dexterity = baseStats.Dexterity;
-        commonDerivedStats.speed = dexterity;
+        int dexterity = baseStats.GetStat(StatType.DEX);
+        derivedStats.speed = dexterity;
     }
 
-    public void CalculateOffensiveStats()
+    void CalculateOffensiveStats()
     {
         CalculatePhysicalDamage();
         CalculateMagicDamage();
@@ -66,53 +79,53 @@ public class CharacterDerivedStat : MonoBehaviour
     #region Common
     void CalculateMaxHP()
     {
-        int strength = baseStats.Strength;
-        int constitution = baseStats.Constitution;
+        int strength = baseStats.GetStat(StatType.STR);
+        int constitution = baseStats.GetStat(StatType.CON);
 
-        commonDerivedStats.maxHP = strength + (2 * constitution);
+        derivedStats.maxHP = strength + (2 * constitution);
     }
 
     void CalculatePhysicalResistance()
     {
-        int constitution = baseStats.Constitution;
-        commonDerivedStats.physicalResistance = 0.25f * constitution;
+        int constitution = baseStats.GetStat(StatType.CON);
+        derivedStats.physicalResistance = 0.25f * constitution;
     }
 
     void CalculateMagicResistance()
     {
-        int intelligence = baseStats.Intelligence;
-        int charisma = baseStats.Charisma;
-        commonDerivedStats.magicResistance = (0.25f * intelligence) + (0.25f * charisma);
+        int intelligence = baseStats.GetStat(StatType.INT);
+        int charisma = baseStats.GetStat(StatType.CHA);
+        derivedStats.magicResistance = (0.25f * intelligence) + (0.25f * charisma);
     }
 
     void CalculateDodgeChance()
     {
-        int dexterity = baseStats.Dexterity;
-        commonDerivedStats.dodgeChance = (0.125f * dexterity);
+        int dexterity = baseStats.GetStat(StatType.DEX);
+        derivedStats.dodgeChance = (0.125f * dexterity);
     }
 
     void CalculateDebuffResistance()
     {
-        int charisma = baseStats.Charisma;
-        commonDerivedStats.debuffResistance = 0.1f * charisma;
+        int charisma = baseStats.GetStat(StatType.CHA);
+        derivedStats.debuffResistance = 0.1f * charisma;
     }
     #endregion
 
     #region Player Only
-    void CalculateBlock(PlayerOnlyDerivedStats playerOnlyDerivedStats)
+    void CalculateBlock()
     {
-        int constitution = baseStats.Constitution;
-        playerOnlyDerivedStats.blockDamageReduction = (0.25f * constitution);
+        int constitution = baseStats.GetStat(StatType.CON);
+        derivedStats.blockDamageReduction = (0.25f * constitution);
     }
 
-    void CalculateAggroRateReduction(PlayerOnlyDerivedStats playerOnlyDerivedStats)
+    void CalculateAggroRateReduction()
     {
-        int charisma = baseStats.Charisma;
-        playerOnlyDerivedStats.aggroRateReduction = (0.5f * charisma);
+        int charisma = baseStats.GetStat(StatType.CHA);
+        derivedStats.aggroRateReduction = (0.5f * charisma);
     }
     #endregion
 
-    public void CalculateDefensiveStats()
+    void CalculateDefensiveStats()
     {
         CalculateMaxHP();
         CalculatePhysicalResistance();
@@ -121,29 +134,26 @@ public class CharacterDerivedStat : MonoBehaviour
         CalculateDebuffResistance();
     }
 
-    public void CalculateDefensiveStats(PlayerOnlyDerivedStats playerOnlyDerivedStats)
+    void CalculatePlayerDefensiveStats()
     {
         CalculateDefensiveStats();
-        CalculateBlock(playerOnlyDerivedStats);
-        CalculateAggroRateReduction(playerOnlyDerivedStats);
+        CalculateBlock();
+        CalculateAggroRateReduction();
     }
     #endregion
 
     #region Other Stats
-    void CalculateDiscoveryRate(PlayerOnlyDerivedStats playerOnlyDerivedStats)
+    void CalculateDiscoveryRate()
     {
-        int luck = baseStats.Luck;
-        playerOnlyDerivedStats.discoveryRate = (0.25f * luck);
+        int luck = baseStats.GetStat(StatType.LCK);
+        derivedStats.discoveryRate = (0.25f * luck);
     }
 
-    public void CalculateOtherStats(PlayerOnlyDerivedStats playerOnlyDerivedStats)
+    void CalculateOtherStats()
     {
-        CalculateDiscoveryRate(playerOnlyDerivedStats);
+        CalculateDiscoveryRate();
     }
     #endregion
-    #endregion
-
-    #region Stat Getters
     #endregion
 }
 
@@ -157,6 +167,11 @@ public class CommonDerivedStats
     public float magicResistance;
     public float dodgeChance;
     public float debuffResistance;
+
+    #region Player Only
+    public float blockDamageReduction;
+    public float aggroRateReduction;
+    #endregion
     #endregion
 
     [Header("Offensive Stats")]
@@ -167,17 +182,9 @@ public class CommonDerivedStats
     public float criticalDamage;
     public int speed;
     #endregion
-}
 
-[System.Serializable]
-public class PlayerOnlyDerivedStats
-{
-    #region Defensive Stats
-    public float blockDamageReduction;
-    public float aggroRateReduction;
-    #endregion
-
-    #region Other Stats
+    #region Other Stats (Player Only)
+    [Header("Other Stats")]
     public float discoveryRate;
     #endregion
 }

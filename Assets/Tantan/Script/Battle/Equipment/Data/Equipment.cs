@@ -12,8 +12,9 @@ public enum EquipmentType
     Accessory3
 }
 
-public class Equipment : MonoBehaviour
+[CreateAssetMenu(fileName = "Equipment", menuName = "Equipment/Equipment Data")]
+public class Equipment : ScriptableObject
 {
     public EquipmentType type;
-    public EquipmentStat equipmentStat;
+    public EquipmentStat stats;
 }
