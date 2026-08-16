@@ -24,13 +24,13 @@ public class Player : Character
 
     void Start()
     {
-        playerEquipment.CalculateLastStat(baseStats);
+        playerEquipment.CalculateLastStat(baseStats, derivedStats);
         derivedStats.CalculatePlayerStat();
     }
 
     void OnEquipmentChange(Equipment equipment, bool isEquipped)
     {
-        playerEquipment.CalculateLastStat(baseStats);
+        playerEquipment.CalculateLastStat(baseStats, derivedStats);
         derivedStats.CalculatePlayerStat();
     }
 }

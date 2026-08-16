@@ -19,8 +19,14 @@ public class CharacterStats : MonoBehaviour
 
     [Header("Stat")]
     public int level;
-    BaseStats modifierStats = new BaseStats();
-    [SerializeField] BaseStats stats = new BaseStats();
+    BaseStats modifierStats;
+    [SerializeField] BaseStats stats;
+
+    private void Awake()
+    {
+        modifierStats = new BaseStats();
+        stats = new BaseStats();
+    }
 
     private void Start()
     {
@@ -44,24 +50,12 @@ public class CharacterStats : MonoBehaviour
     {
         switch (type)
         {
-            case StatType.STR:
-                modifierStats.STR += value; 
-                break;
-            case StatType.DEX:
-                modifierStats.DEX += value;
-                break;
-            case StatType.CON: 
-                modifierStats.CON += value;
-                break;
-            case StatType.CHA:
-                modifierStats.CHA += value;
-                break;
-            case StatType.INT:
-                modifierStats.INT += value;
-                break;
-            case StatType.LCK:
-                modifierStats.LCK += value;
-                break;
+            case StatType.STR: modifierStats.STR += value; break;
+            case StatType.DEX: modifierStats.DEX += value; break;
+            case StatType.CON: modifierStats.CON += value; break;
+            case StatType.INT: modifierStats.INT += value; break;
+            case StatType.LCK: modifierStats.LCK += value; break;
+            case StatType.CHA: modifierStats.CHA += value; break;
         }
 
         CalculateStats();

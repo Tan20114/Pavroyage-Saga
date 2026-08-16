@@ -154,20 +154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0177464aff39d65418227a53fc90f06f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterDerivedStat
-  derivedStats:
-    maxHP: 0
-    physicalResistance: 0
-    magicResistance: 0
-    dodgeChance: 0
-    debuffResistance: 0
-    blockDamageReduction: 0
-    aggroRateReduction: 0
-    physicalDamage: 0
-    magicDamage: 0
-    criticalChance: 0
-    criticalDamage: 0
-    speed: 0
-    discoveryRate: 0
 --- !u!114 &162921718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53a7836424e46624aaacbd039410e65e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
-  baseStats: {fileID: 11400000, guid: 5a5e5a6a1fb9a714796c9cf66022e0dc, type: 2}
+  baseStats: {fileID: 11400000, guid: b561721a87c201e46a9cee9ceaaa50aa, type: 2}
   level: 0
   stats:
     STR: 0

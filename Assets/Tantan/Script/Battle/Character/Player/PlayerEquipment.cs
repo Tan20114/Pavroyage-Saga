@@ -25,9 +25,10 @@ public class PlayerEquipment : MonoBehaviour
         onEquipmentChange?.Invoke(equipment, false);
     }
 
-    public void CalculateLastStat(CharacterStats baseStats)
+    public void CalculateLastStat(CharacterStats baseStats, CharacterDerivedStat derivedStat)
     {
         baseStats.ResetModifier();
+        derivedStat.ResetModifier();
 
         foreach (Equipment equipment in statModifiers.Values)
         {
@@ -40,6 +41,14 @@ public class PlayerEquipment : MonoBehaviour
                 int statValue = modifier.Value;
 
                 baseStats.ModifyStat(statType,statValue);
+            }
+
+            foreach (var modifier in equipment.stats.derivedBonuses)
+            {
+                DerivedType derivedType = modifier.Key;
+                float derivedValue = modifier.Value;
+
+                derivedStat.ModifyDerived(derivedType, derivedValue);
             }
         }
     }
