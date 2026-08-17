@@ -1,7 +1,6 @@
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterStats))]
-[RequireComponent (typeof(CharacterDerivedStat))]
 public class Character : MonoBehaviour
 {
     [SerializeField] protected string characterName;

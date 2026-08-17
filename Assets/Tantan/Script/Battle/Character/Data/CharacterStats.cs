@@ -26,10 +26,7 @@ public class CharacterStats : MonoBehaviour
     {
         modifierStats = new BaseStats();
         stats = new BaseStats();
-    }
 
-    private void Start()
-    {
         CalculateStats();
     }
 
