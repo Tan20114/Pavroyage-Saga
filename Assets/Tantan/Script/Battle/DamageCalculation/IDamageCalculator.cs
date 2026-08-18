@@ -6,15 +6,20 @@ public enum DamageCategory
 
 public enum Element
 {
-    none,
+    None,
     Fire,
     Ice,
     Lightning,
     Holy,
-    Blood
+    Blood,
+    DoT
 }
 
 public interface IDamageCalculator
 {
-    float Calculate(DamageContext context);
+    int Calculate(DamageContext context);
+
+    bool CriticalCalcuations(CharacterDerivedStat attackerStat);
+    float ResistanceCalcuations(CharacterDerivedStat attackerStat, CharacterDerivedStat defenderStat);
+    float BlockCalculation(Character defender);    
 }

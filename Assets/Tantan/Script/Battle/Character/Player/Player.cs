@@ -4,7 +4,22 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerEquipment))]
 public class Player : Character
 {
+    [Header("Modifier")]
     [SerializeField] PlayerEquipment playerEquipment;
+    bool isBlocking = false;
+
+    public bool IsBlocking 
+    {
+        get
+        {
+            return isBlocking;
+        }
+
+        private set
+        {
+            isBlocking = value;
+        }
+    }
 
     protected override void Awake()
     {
@@ -12,9 +27,14 @@ public class Player : Character
         playerEquipment = GetComponent<PlayerEquipment>();
     }
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
         playerEquipment.onEquipmentChange += OnEquipmentChange;
+
+        playerEquipment.CalculateLastStat(baseStats, derivedStats);
+        derivedStats.CalculatePlayerStat();
+
+        base.OnEnable();
     }
 
     private void OnDisable()
@@ -22,15 +42,14 @@ public class Player : Character
         playerEquipment.onEquipmentChange -= OnEquipmentChange;
     }
 
-    void Start()
+    void OnEquipmentChange(Equipment equipment, bool isEquipped)
     {
         playerEquipment.CalculateLastStat(baseStats, derivedStats);
         derivedStats.CalculatePlayerStat();
     }
 
-    void OnEquipmentChange(Equipment equipment, bool isEquipped)
+    public void PlayerAttack()
     {
-        playerEquipment.CalculateLastStat(baseStats, derivedStats);
-        derivedStats.CalculatePlayerStat();
+        Attack(this, DamageCategory.Physical, Element.Fire);
     }
 }

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Player 1
   m_EditorClassIdentifier: Assembly-CSharp::CharacterStatData
   stats:
-    STR: 10
-    DEX: 10
-    CON: 10
-    INT: 10
-    LCK: 10
-    CHA: 10
+    STR: 5
+    DEX: 5
+    CON: 5
+    INT: 5
+    LCK: 5
+    CHA: 5
