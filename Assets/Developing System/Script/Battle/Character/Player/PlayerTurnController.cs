@@ -29,6 +29,7 @@ public class PlayerTurnController
     public void StartTurn(Player player)
     {
         this.player = player;
+        player.SetBlocking(false);
 
         CreateAction();
         inputHandler.onTargetConfirmed += ConfirmTarget;
@@ -46,6 +47,11 @@ public class PlayerTurnController
     public void SelectAttack()
     {
         pendingAction = PendingActionType.Attack;
+    }
+
+    public void Block()
+    {
+        player.ExecuteAction(new BlockAction(player));
     }
 
     public void SelectSkill(int skillIndex)

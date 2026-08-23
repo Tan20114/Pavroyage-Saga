@@ -7,7 +7,7 @@ public class Player : Character
 {
     [Header("Modifier")]
     [SerializeField] PlayerEquipment playerEquipment;
-    bool isBlocking = false;
+    [SerializeField] bool isBlocking = false;
 
     public bool IsBlocking 
     {
@@ -50,5 +50,10 @@ public class Player : Character
     {
         playerEquipment.CalculateLastStat(baseStats, derivedStats);
         derivedStats.CalculatePlayerStat();
+    }
+
+    public void SetBlocking(bool value)
+    {
+        IsBlocking = value;
     }
 }
