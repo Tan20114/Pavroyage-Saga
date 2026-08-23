@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 604df940d8ef412438fb3553fb539b01, type: 3}
+  m_Name: NewSword
+  m_EditorClassIdentifier: Assembly-CSharp::Equipment
+  type: 0
+  stats: {fileID: 11400000, guid: 73be63a975de3984f985600f7da93208, type: 2}
