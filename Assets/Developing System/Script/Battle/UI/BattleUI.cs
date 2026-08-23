@@ -67,5 +67,6 @@ public class BattleUI : MonoBehaviour
     {
         skillPanel.SetActive(false);
         turnController.SelectSkill(index);
+        targetSelectionPanel.SetActive(true);
     }
 }
