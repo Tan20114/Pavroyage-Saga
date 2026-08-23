@@ -17,4 +17,4 @@ MonoBehaviour:
   category: 1
   element: 1
   damageMultiplier: 2
-  skillPointCost: 0
+  skillPointCost: 1

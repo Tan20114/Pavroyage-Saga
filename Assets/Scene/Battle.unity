@@ -1214,6 +1214,10 @@ MonoBehaviour:
   attackButton: {fileID: 309078101}
   skillButton: {fileID: 1837065895}
   skipButton: {fileID: 962181644}
+  skillActivationButtons:
+  - {fileID: 574694908}
+  - {fileID: 1425013211}
+  - {fileID: 1081613578}
 --- !u!1 &552061208
 GameObject:
   m_ObjectHideFlags: 0
@@ -4476,7 +4480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
-  m_Actions: {fileID: -944628639613478452, guid: 35845fe01580c41289b024647b1d1c53, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: 95b9c815ab514e64f85d4818ec71c6e0, type: 3}
   m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -4491,7 +4495,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: Battle
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!4 &2122145478

@@ -93,4 +93,11 @@ public class PlayerTurnController
                .OfType<T>()
                .Any(action => action.CanExecute());
     }
+
+    public bool CanUseSkill(int index)
+    {
+        int cost = player.skills[index].skillPointCost;
+
+        return player.SkillPoints >= cost;
+    }
 }

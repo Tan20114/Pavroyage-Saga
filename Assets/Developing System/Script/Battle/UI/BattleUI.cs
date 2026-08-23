@@ -13,6 +13,7 @@ public class BattleUI : MonoBehaviour
     [SerializeField] Button attackButton;
     [SerializeField] Button skillButton;
     [SerializeField] Button skipButton;
+    [SerializeField] Button[] skillActivationButtons;
 
     public void Initialize(PlayerTurnController ptc)
     {
@@ -21,9 +22,11 @@ public class BattleUI : MonoBehaviour
 
     void LateUpdate()
     {
-        //attackButton.interactable = turnController.CanExecute<AttackAction>();
-        //skillButton.interactable = turnController.CanExecute<SkillAction>();
         skipButton.interactable = turnController.CanExecute<SkipAction>();
+        for (int index = 0 ; index < skillActivationButtons.Length ; index++)
+        {
+            skillActivationButtons[index].interactable = turnController.CanUseSkill(index);
+        }
     }
 
     public void OpenPlayerPanel()
