@@ -26,10 +26,13 @@ public class TurnManager
 
         listToAdd.Clear();
 
-        //foreach (Character character in turnOrder)
-        //{
-        //    Debug.Log(character.name + $"'s speed : {character.derivedStats.GetDerived(DerivedType.Speed)}");
-        //}
+        foreach (Character character in turnOrder)
+        {
+            Debug.Log(
+                character.name +
+                $"'s speed : {character.derivedStats.GetDerived(DerivedType.Speed)}"
+            );
+        }
     }
 
     public Character GetNextCharacter()

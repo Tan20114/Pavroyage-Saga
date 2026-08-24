@@ -16,7 +16,7 @@ public class BattleNewRoundState : IBattleState
 
     public void Enter()
     {
-        //Debug.Log("New Round");
+        Debug.Log("New Round");
 
         turnManager.CreateTurnOrder(characterList);
     }

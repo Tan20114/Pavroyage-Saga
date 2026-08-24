@@ -16,7 +16,7 @@ public class BattleStartState : IBattleState
 
     public void Enter()
     {
-        //Debug.Log("Start Battle");
+        Debug.Log("Start Battle");
 
         turnManager.CreateTurnOrder(characterList);
 
