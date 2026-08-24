@@ -3,7 +3,7 @@
     "name": "BattleInputAction",
     "maps": [
         {
-            "name": "New action map",
+            "name": "Battle",
             "id": "8b8bd7ab-ed7b-46b7-b375-2461c1d0eba4",
             "actions": [
                 {
