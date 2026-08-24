@@ -21,18 +21,11 @@ public enum DerivedType
 [RequireComponent(typeof(CharacterStats))]
 public class CharacterDerivedStat : MonoBehaviour
 {
-    CharacterStats baseStats;
-    CommonDerivedStats derivedStats;
-    CommonDerivedStats modifierStat;
+    CharacterStats baseStats => GetComponent<CharacterStats>();
+    CommonDerivedStats derivedStats = new CommonDerivedStats();
+    CommonDerivedStats modifierStat = new CommonDerivedStats();
 
     CommonDerivedStats finalDerivedStat = new CommonDerivedStats();
-
-    private void Awake()
-    {
-        baseStats = GetComponent<CharacterStats>();
-        derivedStats = new CommonDerivedStats();
-        modifierStat = new CommonDerivedStats();
-    }
 
     public float GetDerived(DerivedType type)
     {

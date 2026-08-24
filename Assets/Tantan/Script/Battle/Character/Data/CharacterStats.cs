@@ -19,14 +19,11 @@ public class CharacterStats : MonoBehaviour
 
     [Header("Stat")]
     public int level;
-    BaseStats modifierStats;
-    [SerializeField] BaseStats stats;
+    BaseStats modifierStats = new BaseStats();
+    [SerializeField] BaseStats stats = new BaseStats();
 
     private void Awake()
     {
-        modifierStats = new BaseStats();
-        stats = new BaseStats();
-
         CalculateStats();
     }
 
@@ -76,6 +73,8 @@ public class CharacterStats : MonoBehaviour
         modifierStats.LCK = 0;
         modifierStats.CON = 0;
         modifierStats.CHA = 0;
+
+        CalculateStats();
     }
 }
 
