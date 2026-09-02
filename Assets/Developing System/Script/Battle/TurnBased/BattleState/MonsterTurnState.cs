@@ -16,9 +16,13 @@ public class MonsterTurnState : IBattleState
 
     public void Enter()
     {
-        Debug.Log($"{monster.name}'s Turn");
+        Debug.Log($"{monster.name}'s turn");
 
-        BattleManager.Instance.NextTurn();
+        monster.ai.InitializeTurn(allPlayer, allMonster);
+        IBattleAction action = monster.ai.DecideAction();
+
+        if (action != null)
+            monster.ExecuteAction(action);
     }
 
     public void Update()

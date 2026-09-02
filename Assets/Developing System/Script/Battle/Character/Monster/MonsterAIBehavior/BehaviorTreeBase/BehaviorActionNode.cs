@@ -4,6 +4,7 @@ using UnityEngine;
 public class BehaviorActionNode : BehaviorLeafNode
 {
     private readonly Func<NodeStatus> action;
+    GameObject gameObject;
 
     public BehaviorActionNode(Func<NodeStatus> action, Blackboard blackboard) : base(blackboard)
     {

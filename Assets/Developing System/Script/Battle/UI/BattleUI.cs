@@ -60,7 +60,6 @@ public class BattleUI : MonoBehaviour
     public void OnBlockButton()
     {
         turnController.Block();
-        baseActionPanel.SetActive(false);
     }
 
     public void OnSkillButton()

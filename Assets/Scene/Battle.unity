@@ -341,8 +341,6 @@ MonoBehaviour:
   skillPoints: 0
   skillList:
   - {fileID: 11400000, guid: 7948310fbae7b264e8052d45cd6b82e6, type: 2}
-  - {fileID: 11400000, guid: 7948310fbae7b264e8052d45cd6b82e6, type: 2}
-  - {fileID: 11400000, guid: 7948310fbae7b264e8052d45cd6b82e6, type: 2}
   playerEquipment: {fileID: 0}
   isBlocking: 0
 --- !u!65 &162921721
@@ -432,7 +430,7 @@ Transform:
   m_GameObject: {fileID: 162921716}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: 1, z: -3}
+  m_LocalPosition: {x: -3.35, y: 1, z: -1.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1406,6 +1404,7 @@ MonoBehaviour:
   battleUI: {fileID: 511595307}
   playerCharacters:
   - {fileID: 162921720}
+  - {fileID: 1873124226}
   monsterCharacters:
   - {fileID: 586781057}
   - {fileID: 1816039197}
@@ -4483,6 +4482,192 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1837065893}
   m_CullTransparentMesh: 1
+--- !u!1 &1873124225
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1873124233}
+  - component: {fileID: 1873124232}
+  - component: {fileID: 1873124231}
+  - component: {fileID: 1873124230}
+  - component: {fileID: 1873124226}
+  - component: {fileID: 1873124229}
+  - component: {fileID: 1873124228}
+  - component: {fileID: 1873124227}
+  m_Layer: 0
+  m_Name: Player (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1873124226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873124225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d77b9c2d08d71f49aec21604f20760f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player
+  derivedStats: {fileID: 0}
+  baseStats: {fileID: 0}
+  characterName: Player
+  currentHP: 0
+  skillPoints: 0
+  skillList:
+  - {fileID: 11400000, guid: 7948310fbae7b264e8052d45cd6b82e6, type: 2}
+  playerEquipment: {fileID: 0}
+  isBlocking: 0
+--- !u!114 &1873124227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873124225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0177464aff39d65418227a53fc90f06f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterDerivedStat
+--- !u!114 &1873124228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873124225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53a7836424e46624aaacbd039410e65e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
+  baseStats: {fileID: 11400000, guid: 5a5e5a6a1fb9a714796c9cf66022e0dc, type: 2}
+  level: 0
+  stats:
+    STR: 0
+    DEX: 0
+    CON: 0
+    INT: 0
+    LCK: 0
+    CHA: 0
+--- !u!114 &1873124229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873124225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7392a5217a71eaf459480b9ba4f06983, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerEquipment
+  equippedItems:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 11400000, guid: a61631b4749aabd459eb2dbfb5a50729, type: 2}
+--- !u!65 &1873124230
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873124225}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1873124231
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873124225}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1873124232
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873124225}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1873124233
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873124225}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.73, y: 1, z: -3.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1939741459
 GameObject:
   m_ObjectHideFlags: 0
@@ -4890,6 +5075,18 @@ PrefabInstance:
       propertyPath: currentHP
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2317001958588070081, guid: 4ecbd909ab1532b4ab48b7b7df751c79, type: 3}
+      propertyPath: skillPoints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2317001958588070081, guid: 4ecbd909ab1532b4ab48b7b7df751c79, type: 3}
+      propertyPath: skillList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2317001958588070081, guid: 4ecbd909ab1532b4ab48b7b7df751c79, type: 3}
+      propertyPath: 'skillList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 82dfc9948bc897443840ad0ec1cc9927, type: 2}
     - target: {fileID: 3496156375227126447, guid: 4ecbd909ab1532b4ab48b7b7df751c79, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3
@@ -5006,6 +5203,14 @@ PrefabInstance:
       propertyPath: currentHP
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7843357736115937212, guid: 9a815b04288904247954a2fbc92f4227, type: 3}
+      propertyPath: skillList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7843357736115937212, guid: 9a815b04288904247954a2fbc92f4227, type: 3}
+      propertyPath: 'skillList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7948310fbae7b264e8052d45cd6b82e6, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5067,6 +5272,14 @@ PrefabInstance:
       propertyPath: currentHP
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5655324260497676208, guid: d17cfcec0d5401540a0fb0078f8be8ef, type: 3}
+      propertyPath: skillList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655324260497676208, guid: d17cfcec0d5401540a0fb0078f8be8ef, type: 3}
+      propertyPath: 'skillList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7948310fbae7b264e8052d45cd6b82e6, type: 2}
     - target: {fileID: 6742252070104989642, guid: d17cfcec0d5401540a0fb0078f8be8ef, type: 3}
       propertyPath: m_Name
       value: NormalMonster
@@ -5099,6 +5312,14 @@ PrefabInstance:
       propertyPath: currentHP
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2979903945348440742, guid: cfcd2645db3ba784199910e595e5f7c8, type: 3}
+      propertyPath: skillList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2979903945348440742, guid: cfcd2645db3ba784199910e595e5f7c8, type: 3}
+      propertyPath: 'skillList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7948310fbae7b264e8052d45cd6b82e6, type: 2}
     - target: {fileID: 8562312630951573375, guid: cfcd2645db3ba784199910e595e5f7c8, type: 3}
       propertyPath: m_Name
       value: AssaultMonster
@@ -5156,6 +5377,7 @@ SceneRoots:
   - {fileID: 1301354441}
   - {fileID: 1764976451}
   - {fileID: 162921724}
+  - {fileID: 1873124233}
   - {fileID: 511595306}
   - {fileID: 2122803929}
   - {fileID: 9084036709978502282}
