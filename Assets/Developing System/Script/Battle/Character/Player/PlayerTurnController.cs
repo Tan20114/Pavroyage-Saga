@@ -102,6 +102,8 @@ public class PlayerTurnController
 
     public bool CanUseSkill(int index)
     {
+        if (player.skills.Count - 1 < index || player.skills[index] == null) return false;
+
         int cost = player.skills[index].skillPointCost;
 
         return player.SkillPoints >= cost;
