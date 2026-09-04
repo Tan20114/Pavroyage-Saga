@@ -1,0 +1,454 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GlobalManager" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Developing System\Script\GlobalManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneLoader" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAABCAAAAAQAAAAAAAgAQ=</HashCode>
+      <FileName>Assets\Developing System\Script\SceneTransition\SceneLoader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneTransition" Collapsed="true">
+    <Position X="0.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAABIAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Assets\Developing System\Script\SceneTransition\SceneTransition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GuildFlow" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAQAAAEAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Assets\Developing System\Script\Guild\GuildFlow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GuildManager" Collapsed="true">
+    <Position X="2.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAACAAAAAAAAAAAAASAAAAAAAAAAQAAAEAAAAEA=</HashCode>
+      <FileName>Assets\Developing System\Script\Guild\GuildManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BattleManager" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YAAAQAAAACCACCAAAAAAAECQABQQAAAJQAAAgAAACEA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\BattleManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BattleStateMachine" Collapsed="true">
+    <Position X="6.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAABAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\TurnBased\BattleStateMachine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TurnManager" Collapsed="true">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAABBAAAEIAAAAAAAIAAAAIAAAAAAAAAE=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\TurnBased\TurnManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BattleNewRoundState" Collapsed="true">
+    <Position X="6.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAQAAAAAAAAAAAAAAAEAAAAAAAAEABAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\TurnBased\BattleState\BattleNewRoundState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BattleStartState" Collapsed="true">
+    <Position X="8" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAQAAAAAAAAAAAAAAAEAAAAAAAAEABAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\TurnBased\BattleState\BattleStartState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DefeatState" Collapsed="true">
+    <Position X="9.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAEAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\TurnBased\BattleState\DefeatState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VictoryState" Collapsed="true">
+    <Position X="9.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAEAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\TurnBased\BattleState\VictoryState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="PlayerTurnState" Collapsed="true">
+    <Position X="8" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAQAAAAAAAAAAAAAAAAAAAAAAEAAABIAEAAAAAAAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\TurnBased\BattleState\PlayerTurnState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MonsterTurnState" Collapsed="true">
+    <Position X="6.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAgAAAAAAAAAAAAAAAAAAAEAAAAIAAAAAIAAAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\TurnBased\BattleState\MonsterTurnState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Equipment" Collapsed="true">
+    <Position X="13.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\Equipment\Data\Equipment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Character" Collapsed="true">
+    <Position X="15" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEABAAAAAAAACAEIAIEACAAIICAAADAAAEgBQACEA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\Character\Character.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player" Collapsed="true">
+    <Position X="14" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAABAAAAAAAAAAAAAAAAAAAAAAAAAYgAAAAgAAGEA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\Character\Player\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Monster" Collapsed="true">
+    <Position X="16" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAACEA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\Character\Monster\Monster.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerTurnController" Collapsed="true">
+    <Position X="14" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAABAAACAEAUCBEAAAAgAAAgAJAAEAAAAAAAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\Character\Player\PlayerTurnController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerEquipment" Collapsed="true">
+    <Position X="13.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAACAAAAwAAAQAYAAAAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\Character\Player\PlayerEquipment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DamageContext" Collapsed="true">
+    <Position X="6.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAACAAAAAIAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\DamageCalculation\DamageContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DMGCalculatorSelection" Collapsed="true">
+    <Position X="8" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\DamageCalculation\DMGCalculatorSelection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MagicDamageCalculation" Collapsed="true">
+    <Position X="6.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAACAAAAAIAAAAAAAAAIA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\DamageCalculation\MagicDamageCalculation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="PhysicalDamageCalculation" Collapsed="true">
+    <Position X="6.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAACAAAAAIAAAAAAAAAIA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\DamageCalculation\PhysicalDamageCalculation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MonsterAI" Collapsed="true">
+    <Position X="16" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAgAVIIgAAAAAAAERAAAIAAAEBAAAACCAAAAAE=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\Character\Monster\MonsterAIBehavior\EnemyAI\MonsterAI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BehaviorActionNode" Collapsed="true">
+    <Position X="19.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAQAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\Character\Monster\MonsterAIBehavior\BehaviorTreeBase\BehaviorActionNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BehaviorNode" Collapsed="true">
+    <Position X="22.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\Character\Monster\MonsterAIBehavior\BehaviorTreeBase\BehaviorNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BehaviorLeafNode" Collapsed="true">
+    <Position X="21" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\Character\Monster\MonsterAIBehavior\BehaviorTreeBase\BehaviorLeafNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BehaviorCompositeNode" Collapsed="true">
+    <Position X="23.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAQAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\Character\Monster\MonsterAIBehavior\BehaviorTreeBase\BehaviorCompositeNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BehaviorConditionNode" Collapsed="true">
+    <Position X="21.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\Character\Monster\MonsterAIBehavior\BehaviorTreeBase\BehaviorConditionNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BehaviorSelectorNode" Collapsed="true">
+    <Position X="23" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\Character\Monster\MonsterAIBehavior\BehaviorTreeBase\BehaviorSelectorNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BehaviorSequenceNode" Collapsed="true">
+    <Position X="24.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\Character\Monster\MonsterAIBehavior\BehaviorTreeBase\BehaviorSequenceNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Blackboard" Collapsed="true">
+    <Position X="20.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAABACAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\Character\Monster\MonsterAIBehavior\BehaviorTreeBase\Blackboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CharacterDerivedStat" Collapsed="true">
+    <Position X="17.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CABEAYAIAwJAgAACAgEIAAEAQAgAABQAQAAAIkUAAAg=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\Character\Data\CharacterDerivedStat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CommonDerivedStats" Collapsed="true">
+    <Position X="17.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAQAAIAAEIACAABAABAAAQCAAQAAAAABgIA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\Character\Data\CharacterDerivedStat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CharacterStats" Collapsed="true">
+    <Position X="14.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACEAAAQAABAAAgAAAAAAAAAAAEAAAAABAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\Character\Data\CharacterStats.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseStats" Collapsed="true">
+    <Position X="14.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAECAAACgAAAAAAAAAAIAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\Character\Data\CharacterStats.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CharacterStatData" Collapsed="true">
+    <Position X="14.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\Character\Data\CharacterStatData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TargetSelectionInputHandler" Collapsed="true">
+    <Position X="12" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAgAAAAAAAAQAAgAAAAAAEAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\BattleAction\TargetSelectionInputHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TargetSelection" Collapsed="true">
+    <Position X="12" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IgAAAAAAAEAAIgCAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\BattleAction\TargetSelection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ActionExecutor" Collapsed="true">
+    <Position X="19.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\BattleAction\ActionExecutor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AttackAction" Collapsed="true">
+    <Position X="19.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAABAAQAIEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\BattleAction\Action\AttackAction.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SkillAction" Collapsed="true">
+    <Position X="19.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAEAAAAAAQAIEAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\BattleAction\Action\SkillAction.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BlockAction" Collapsed="true">
+    <Position X="21.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAQAAEAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\BattleAction\Action\BlockAction.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SkipAction" Collapsed="true">
+    <Position X="21.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAQAAEAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\BattleAction\Action\SkipAction.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SkillData" Collapsed="true">
+    <Position X="24" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAEAIACAAAAAAAAAIAAAAIAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\BattleAction\Action\Skill\SkillData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SkillExecutor" Collapsed="true">
+    <Position X="24" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAACAAAAAAAAAAQA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\BattleAction\Action\Skill\SkillExecutor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BuffSkillStrategy" Collapsed="true">
+    <Position X="24" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\BattleAction\Action\Skill\SkillStrategy\BuffSkillStrategy.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DamageSkillStrategy" Collapsed="true">
+    <Position X="25.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\BattleAction\Action\Skill\SkillStrategy\DamageSkillStrategy.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DebuffSkillStrategy" Collapsed="true">
+    <Position X="24" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\BattleAction\Action\Skill\SkillStrategy\DebuffSkillStrategy.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="HealSkillStrategy" Collapsed="true">
+    <Position X="25.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\BattleAction\Action\Skill\SkillStrategy\HealSkillStrategy.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="IBattleState" Collapsed="true">
+    <Position X="6.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAEAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\TurnBased\IBattleState.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="IDamageCalculator" Collapsed="true">
+    <Position X="6.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAACAAAAAIAAAAAAAAAIA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\DamageCalculation\IDamageCalculator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="IBattleAction" Collapsed="true">
+    <Position X="19.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAQAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\BattleAction\IBattleAction.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="GuildState">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQgAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Guild\GuildManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="EquipmentType">
+    <Position X="14.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACABQAAAAAAAQIACAgAAAAAAAAAAAI=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\Equipment\Data\Equipment.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DamageCategory">
+    <Position X="8" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\DamageCalculation\IDamageCalculator.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Element">
+    <Position X="9.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAACABEAIAAAAAAAAEAQAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\DamageCalculation\IDamageCalculator.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="NodeStatus">
+    <Position X="24.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAACIAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\Character\Monster\MonsterAIBehavior\BehaviorTreeBase\BehaviorNode.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DerivedType">
+    <Position X="16.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAGAhBAAAAAQAgIAAAAAAAABAAAAQAAIAAAAgAEAAAQ=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\Character\Data\CharacterDerivedStat.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="StatType">
+    <Position X="13.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAECAAACgAAAAAAAAAAIAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\Character\Data\CharacterStats.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SkillType">
+    <Position X="25.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAACAAAAAgACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Developing System\Script\Battle\BattleAction\Action\Skill\SkillData.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

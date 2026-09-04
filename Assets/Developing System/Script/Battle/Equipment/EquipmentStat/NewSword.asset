@@ -27,4 +27,6 @@ MonoBehaviour:
     - Key: 5
       Value: 20
   derivedBonuses:
-    _serializedList: []
+    _serializedList:
+    - Key: 0
+      Value: 10
