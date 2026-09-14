@@ -4,7 +4,10 @@ public enum GuildState
 {
     MainMenu,
     CharacterSelection,
-    GuildHub
+    GuildHub,
+    Shop,
+    Questboard,
+    Guildmaster
 }
 
 public class GuildManager : MonoBehaviour
@@ -32,6 +35,21 @@ public class GuildManager : MonoBehaviour
     public void GoToMainMenu()
     {
         guildFlow.ChangeState(GuildState.MainMenu);
+    }
+
+    public void GoToGuildMaster()
+    {
+        guildFlow.ChangeState(GuildState.Guildmaster);
+    }
+
+    public void GoToShop()
+    {
+        guildFlow.ChangeState(GuildState.Shop);
+    }
+
+    public void GoToQuestboard()
+    {
+        guildFlow.ChangeState(GuildState.Questboard);
     }
 
     public void ReloadScene()

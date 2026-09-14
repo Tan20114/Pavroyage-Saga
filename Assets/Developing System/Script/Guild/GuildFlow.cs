@@ -5,8 +5,8 @@ public class GuildFlow : MonoBehaviour
 {
     [SerializeField] SceneLoader sceneLoader;
 
-    [SerializedDictionary("State", "Panel")] [SerializeField]
-    SerializedDictionary<GuildState, GameObject> stateToPanel;
+    [SerializedDictionary("State", "Panel")]
+    [SerializeField] SerializedDictionary<GuildState, GameObject> stateToPanel;
 
     public void ChangeState(GuildState state)
     {
