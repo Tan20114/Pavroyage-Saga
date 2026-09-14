@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 686ff5092ad219d42b25b553d0674ffe, type: 3}
-  m_Name: QuestTest1
+  m_Name: GoblinHunt
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
   questName: Goblin Hunt
   description: 
@@ -23,8 +23,4 @@ MonoBehaviour:
   failureOutcome:
     type: 0
   monsterPrefabs:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8562312630951573375, guid: cfcd2645db3ba784199910e595e5f7c8, type: 3}

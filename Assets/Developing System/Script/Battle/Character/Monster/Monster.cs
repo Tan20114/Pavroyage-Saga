@@ -11,10 +11,9 @@ public class Monster : Character
         ai = new MonsterAI(this);
     }
 
-    protected override void OnEnable()
+    public void Initialize()
     {
         derivedStats.CalculateStat();
-
-        base.OnEnable();
+        InitialHP();
     }
 }

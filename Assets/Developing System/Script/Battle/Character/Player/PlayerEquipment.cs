@@ -5,35 +5,93 @@ using UnityEngine;
 public class PlayerEquipment : MonoBehaviour
 {
     [SerializedDictionary("Equipment Type", "Equipment")]
-    public SerializedDictionary<EquipmentType, Equipment> equippedItems;
+    public SerializedDictionary<EquipmentSlot, Equipment> equippedItems;
 
     public delegate void OnEquipmentChange(Equipment current, Equipment previous, bool equipped);
     public event OnEquipmentChange onEquipmentChange;
+
+    public void LoadData(SerializedDictionary<EquipmentSlot, Equipment> equippedItems)
+    {
+        this.equippedItems = equippedItems;
+    }
 
     public void Equip(Equipment equipment)
     {
         if (equipment == null) return;
 
-        equippedItems.TryGetValue(equipment.type, out Equipment previous);
+        EquipmentSlot slot;
 
-        equippedItems[equipment.type] = equipment;
+        if (equipment.type == EquipmentType.Accessory)
+        {
+            if (!equippedItems.ContainsKey(EquipmentSlot.Accessory1))
+                slot = EquipmentSlot.Accessory1;
+            else if (!equippedItems.ContainsKey(EquipmentSlot.Accessory2))
+                slot = EquipmentSlot.Accessory2;
+            else if (!equippedItems.ContainsKey(EquipmentSlot.Accessory3))
+                slot = EquipmentSlot.Accessory3;
+            else
+                return;
+        }
+        else
+        {
+            slot = (EquipmentSlot)equipment.type;
+        }
+
+        equippedItems.TryGetValue(slot, out Equipment previous);
+
+        equippedItems[slot] = equipment;
 
         onEquipmentChange?.Invoke(equipment, previous, true);
     }
 
     public void Unequip(EquipmentType equipmentType)
     {
-        if (!equippedItems.TryGetValue( equipmentType, out Equipment equipment)) return;
+        if (equipmentType == EquipmentType.Accessory)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                EquipmentSlot slot = EquipmentSlot.Accessory1 + i;
 
-        equippedItems.Remove(equipmentType);
+                if (equippedItems.TryGetValue(slot, out Equipment equipped))
+                {
+                    equippedItems.Remove(slot);
+                    onEquipmentChange?.Invoke(null, equipped, false);
+                    return;
+                }
+            }
+
+            return;
+        }
+
+        EquipmentSlot equipmentSlot = (EquipmentSlot)equipmentType;
+
+        if (!equippedItems.TryGetValue(equipmentSlot, out Equipment equipment))
+            return;
+
+        equippedItems.Remove(equipmentSlot);
 
         onEquipmentChange?.Invoke(null, equipment, false);
     }
 
     public Equipment GetEquipment(EquipmentType equipmentType)
     {
+        if (equipmentType == EquipmentType.Accessory)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                EquipmentSlot slot = EquipmentSlot.Accessory1 + i;
+
+                if (equippedItems.TryGetValue(slot, out Equipment equipped))
+                    return equipped;
+            }
+
+            return null;
+        }
+
+        EquipmentSlot equipmentSlot = (EquipmentSlot)equipmentType;
+
         equippedItems.TryGetValue(
-            equipmentType,
+            equipmentSlot,
             out Equipment equipment
         );
 
@@ -42,7 +100,14 @@ public class PlayerEquipment : MonoBehaviour
 
     public bool IsEquipped(EquipmentType equipmentType)
     {
-        return equippedItems.ContainsKey(equipmentType);
+        if (equipmentType == EquipmentType.Accessory)
+        {
+            return equippedItems.ContainsKey(EquipmentSlot.Accessory1)
+                || equippedItems.ContainsKey(EquipmentSlot.Accessory2)
+                || equippedItems.ContainsKey(EquipmentSlot.Accessory3);
+        }
+
+        return equippedItems.ContainsKey((EquipmentSlot)equipmentType);
     }
 
     public void CalculateLastStat(CharacterStats baseStats, CharacterDerivedStat derivedStat)

@@ -10,11 +10,15 @@ public class QuestCard : MonoBehaviour
     Button questCardButton;
     TextMeshProUGUI questName;
 
+    private void Awake()
+    {
+        questCardButton = GetComponent<Button>();
+        questName = GetComponentInChildren<TextMeshProUGUI>();
+    }
+
     public void Initialize(QuestBoard questBoard)
     {
         this.questBoard = questBoard;
-        questCardButton = GetComponent<Button>();
-        questName = GetComponentInChildren<TextMeshProUGUI>();
     }
 
     public void SetQuest(QuestData questData)

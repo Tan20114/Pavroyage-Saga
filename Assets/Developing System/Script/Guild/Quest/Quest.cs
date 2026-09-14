@@ -11,6 +11,7 @@ public enum QuestOutcomeType
 public class Quest
 {
     private readonly QuestData data;
+    public QuestData Data {  get { return data; } }
 
     public Quest(QuestData data)
     {

@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 686ff5092ad219d42b25b553d0674ffe, type: 3}
-  m_Name: QuestTest2
-  m_EditorClassIdentifier: Assembly-CSharp::QuestData
-  questName: River Cross
-  description: 
-  questImage: {fileID: 0}
-  rank: 0
-  difficulty: 1
-  questType: 1
+  m_Script: {fileID: 11500000, guid: 55b8246883405d440948b20f840f08d2, type: 3}
+  m_Name: Accessory D
+  m_EditorClassIdentifier: Assembly-CSharp::EquipmentStat
+  statBonuses:
+    _serializedList: []
+  derivedBonuses:
+    _serializedList: []

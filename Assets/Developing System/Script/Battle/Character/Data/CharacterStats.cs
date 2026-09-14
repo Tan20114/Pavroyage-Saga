@@ -27,6 +27,11 @@ public class CharacterStats : MonoBehaviour
         CalculateStats();
     }
 
+    public void LoadData(CharacterStatData data)
+    {
+        baseStats = data;
+    }
+
     public int GetStat(StatType type)
     {
         return type switch
@@ -55,6 +60,8 @@ public class CharacterStats : MonoBehaviour
 
     public void CalculateStats()
     {
+        if (baseStats == null) return;
+
         stats.STR = baseStats.stats.STR + modifierStats.STR;
         stats.DEX = baseStats.stats.DEX + modifierStats.DEX;
         stats.CON = baseStats.stats.CON + modifierStats.CON;

@@ -5,11 +5,26 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerEquipment))]
 public class Player : Character
 {
+    PlayerData playerData;
+
+    int currentLevel = 1;
+    public int CurrentLevel
+    {
+        get
+        {
+            return currentLevel;
+        }
+        private set
+        {
+            currentLevel = value;
+        }
+    }
+
     [Header("Modifier")]
     [SerializeField] PlayerEquipment playerEquipment;
     [SerializeField] bool isBlocking = false;
 
-    public bool IsBlocking 
+    public bool IsBlocking
     {
         get
         {
@@ -28,12 +43,12 @@ public class Player : Character
         playerEquipment = GetComponent<PlayerEquipment>();
     }
 
-    protected override void OnEnable()
+    protected void OnEnable()
     {
         playerEquipment.onEquipmentChange += OnEquipmentChange;
 
         RecalculateStats();
-        base.OnEnable();
+        InitialHP();
     }
 
     private void OnDisable()
@@ -55,5 +70,19 @@ public class Player : Character
     public void SetBlocking(bool value)
     {
         IsBlocking = value;
+    }
+
+    public void Initialize(PlayerData data)
+    {
+        playerData = data;
+
+        baseStats.LoadData(data.stats);
+
+        playerEquipment.LoadData(data.equippedItems);
+
+        skillList = data.skills;
+
+        RecalculateStats();
+        InitialHP();
     }
 }

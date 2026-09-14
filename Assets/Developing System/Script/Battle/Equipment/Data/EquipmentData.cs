@@ -1,7 +1,7 @@
 using AYellowpaper.SerializedCollections;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "EquipmentStat", menuName = "Equipment/Equipment Stat")]
+[CreateAssetMenu(menuName = "Item/Equipments/Equipment Stat")]
 public class EquipmentStat : ScriptableObject
 {
     [SerializedDictionary("Stat Type", "Value")]

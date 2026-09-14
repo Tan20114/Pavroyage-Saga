@@ -7,13 +7,23 @@ public enum EquipmentType
     BodyArmor,
     Leggings,
     Boots,
+    Accessory
+}
+
+public enum EquipmentSlot
+{
+    Weapon,
+    Helmet,
+    BodyArmor,
+    Leggings,
+    Boots,
     Accessory1,
     Accessory2,
     Accessory3
 }
 
-[CreateAssetMenu(fileName = "Equipment", menuName = "Equipment/Equipment Data")]
-public class Equipment : ScriptableObject
+[CreateAssetMenu(menuName = "Item/Equipments/Equipment")]
+public class Equipment : ItemData
 {
     public EquipmentType type;
     public EquipmentStat stats;

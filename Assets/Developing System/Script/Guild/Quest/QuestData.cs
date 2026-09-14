@@ -34,6 +34,9 @@ public class QuestData : ScriptableObject
 
     public QuestType questType;
 
+    [Header("Stat Check")]
+    public StatType statCheck;
+
     [Header("Outcome")]
     public QuestOutcome successOutcome;
 

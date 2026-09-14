@@ -34,6 +34,11 @@ public class GuildManager : MonoBehaviour
         guildFlow.ChangeState(GuildState.MainMenu);
     }
 
+    public void ReloadScene()
+    {
+        guildFlow.ReloadScene();
+    }
+
     public void GoToBattle()
     {
         guildFlow.GoToBattle();

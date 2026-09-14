@@ -16,7 +16,10 @@ public class BattleStartState : IBattleState
 
     public void Enter()
     {
-        //Debug.Log("Start Battle");
+        foreach (var character in characterList)
+        {
+            Debug.Log("[BattleStartState] " + character);
+        }
 
         turnManager.CreateTurnOrder(characterList);
 

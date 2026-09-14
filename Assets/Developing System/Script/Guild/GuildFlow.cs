@@ -23,4 +23,9 @@ public class GuildFlow : MonoBehaviour
     {
         sceneLoader.SceneTransition(1);
     }
+
+    public void ReloadScene()
+    {
+        sceneLoader.SceneTransition(0);
+    }
 }

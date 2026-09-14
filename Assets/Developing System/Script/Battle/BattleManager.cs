@@ -10,6 +10,7 @@ public class BattleManager : MonoBehaviour
     [Header("Reference")]
     [SerializeField] BattleUI battleUI;
     [SerializeField] List<Player> playerCharacters;
+    public List<Player> PlayerCharacter => playerCharacters;
     [SerializeField] List<Monster> monsterCharacters;
     List<Character> AllCharacter
     {
@@ -20,11 +21,13 @@ public class BattleManager : MonoBehaviour
     [SerializeField] BattleStateMachine stateMachine;
     [SerializeField] TargetSelectionInputHandler targetSelectionInputHandler;
     PlayerTurnController playerTurnController;
+    BattleFlow battleFlow;
 
     private void Awake()
     {
         Instance = this;
 
+        battleFlow = GetComponent<BattleFlow>();
         turnManager = new TurnManager();
         targetSelectionInputHandler.Initialize(playerCharacters,monsterCharacters);
         playerTurnController = new PlayerTurnController(battleUI, targetSelectionInputHandler);
@@ -32,25 +35,29 @@ public class BattleManager : MonoBehaviour
         stateMachine = GetComponent<BattleStateMachine>();
     }
 
-    private void OnEnable()
+    void StartBattle()
     {
+        battleFlow.StartBattle();
+
         foreach (Character character in AllCharacter)
         {
             character.onDead += OnCharacterDeathHandler;
         }
+
+        stateMachine.ChangeState(new BattleStartState(turnManager, AllCharacter));
     }
 
-    private void OnDisable()
+    void Start()
+    {
+        StartBattle();
+    }
+
+    private void OnDestroy()
     {
         foreach (Character character in AllCharacter)
         {
             character.onDead -= OnCharacterDeathHandler;
         }
-    }
-
-    void Start()
-    {
-        stateMachine.ChangeState(new BattleStartState(turnManager, AllCharacter));
     }
 
     public void NextTurn()
@@ -87,17 +94,22 @@ public class BattleManager : MonoBehaviour
     {
         if (IsMonsterDefeated())
         {
-            stateMachine.ChangeState(new VictoryState());
+            stateMachine.ChangeState(new VictoryState(battleUI));
             return true;
         }
 
         if (IsPlayerDefeated())
         {
-            stateMachine.ChangeState(new DefeatState());
+            stateMachine.ChangeState(new DefeatState(battleUI));
             return true;
         }
 
         return false;
+    }
+
+    public void AddMonster(Monster monster)
+    {
+        monsterCharacters.Add(monster);
     }
 
     #region Status Check

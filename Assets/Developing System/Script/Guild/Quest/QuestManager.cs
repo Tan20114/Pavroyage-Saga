@@ -23,14 +23,15 @@ public class QuestManager : MonoBehaviour
     public delegate void OnQuestConfirmed();
     public event OnQuestConfirmed QuestConfirmed;
 
-    public List<QuestData> questPool;
+    [SerializeField] List<QuestData> questPool;
 
     private void Awake()
     {
         questFactory = new QuestFactory();
     }
 
-    public void GenerateDailyBoard(List<QuestData> questPool)
+    #region Quest Board
+    public void GenerateDailyBoard()
     {
         availableQuests = questPool
             .Where(quest => quest != null)
@@ -42,7 +43,6 @@ public class QuestManager : MonoBehaviour
     public bool ConfirmQuest(QuestData questData)
     {
         if (!CanStartQuest()) return false;
-
         if (availableQuests == null) return false;
 
         int selectedIndex = System.Array.IndexOf(
@@ -50,18 +50,18 @@ public class QuestManager : MonoBehaviour
             questData
         );
 
-        if (selectedIndex < 0)
-            return false;
+        if (selectedIndex < 0) return false;
 
         activeQuest = questFactory.Create(questData);
-
         availableQuests[selectedIndex] = null;
 
         List<int> availableIndices = GetAvailableQuestIndices();
 
+        int questsNeeded = MaxQuestPerDay - (completedQuestCount + 1);
+
         int maxRemoval = Mathf.Min(
             MaxRandomRemoval,
-            availableIndices.Count
+            availableIndices.Count - questsNeeded
         );
 
         if (maxRemoval > 0)
@@ -82,18 +82,6 @@ public class QuestManager : MonoBehaviour
         QuestConfirmed?.Invoke();
 
         return true;
-    }
-
-    void RemoveQuest(QuestData quest)
-    {
-        for (int i = 0; i < availableQuests.Length; i++)
-        {
-            if (availableQuests[i] == quest)
-            {
-                availableQuests[i] = null;
-                return;
-            }
-        }
     }
 
     List<int> GetAvailableQuestIndices()
@@ -121,11 +109,57 @@ public class QuestManager : MonoBehaviour
 
         completedQuestCount++;
         activeQuest = null;
+
+        if (IsDailyCompleted)
+        {
+            StartNewDay();
+            Debug.Log("Daily quest limit reached. Starting a new day.");
+        }
     }
 
-    public void ResetDailyProgress()
+    public void StartNewDay()
     {
         activeQuest = null;
         completedQuestCount = 0;
+
+        GenerateDailyBoard();
     }
+    #endregion
+
+    #region Stat Check Calculation
+    public QuestOutcome ResolveStatCheck(Player player, int act)
+    {
+        if (activeQuest == null) return null;
+
+        if (activeQuest.Data.questType != QuestType.StatCheck) return null;
+
+        StatCheckCalculator calculator = new StatCheckCalculator();
+
+        bool success = calculator.Check(player, activeQuest, act);
+
+        return success ? activeQuest.Data.successOutcome : activeQuest.Data.failureOutcome;
+    }
+
+    void ExecuteOutcome(QuestOutcome outcome)
+    {
+        switch (outcome.type)
+        {
+            case QuestOutcomeType.Battle:
+                // TODO: Start Battle
+                break;
+
+            case QuestOutcomeType.Reward:
+                // TODO
+                break;
+
+            case QuestOutcomeType.NextQuest:
+                // TODO
+                break;
+
+            case QuestOutcomeType.Story:
+                // TODO
+                break;
+        }
+    }
+    #endregion
 }

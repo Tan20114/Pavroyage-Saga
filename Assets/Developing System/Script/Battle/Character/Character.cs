@@ -61,7 +61,7 @@ public class Character : MonoBehaviour
         derivedStats = GetComponent<CharacterDerivedStat>();
     }
 
-    protected virtual void OnEnable()
+    protected void InitialHP()
     {
         CurrentHP = (int)derivedStats.GetDerived(DerivedType.MaxHp);
     }
