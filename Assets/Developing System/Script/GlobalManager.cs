@@ -8,6 +8,10 @@ public class GlobalManager : MonoBehaviour
     public QuestManager QuestManager { get; private set; }
     public PlayerManager PlayerManager { get; private set; }
 
+    public BattleResult LastBattleResult { get; private set; }
+
+    public bool IsStart { get; private set; } = false;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -24,5 +28,15 @@ public class GlobalManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         QuestManager.StartNewDay();
+    }
+
+    public void SetBattleResult(BattleResult result)
+    {
+        LastBattleResult = result;
+    }
+
+    public void StartGame()
+    {
+        IsStart = true;
     }
 }

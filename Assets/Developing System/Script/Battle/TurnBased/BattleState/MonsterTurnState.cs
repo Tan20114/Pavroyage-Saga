@@ -12,6 +12,7 @@ public class MonsterTurnState : IBattleState
         this.monster = monster;
         allMonster = monsterCharacter;
         allPlayer = playerCharacter;
+        BattleManager.Instance.SetTurnOwner(this.monster);
     }
 
     public void Enter()

@@ -8,6 +8,13 @@ public enum QuestOutcomeType
     Story
 }
 
+public enum BattleResult
+{
+    None,
+    Victory,
+    Defeat
+}
+
 public class Quest
 {
     private readonly QuestData data;

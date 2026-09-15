@@ -11,8 +11,14 @@ public class Character : MonoBehaviour
     [HideInInspector] public CharacterStats baseStats;
     [HideInInspector] public ActionExecutor actionExecutor { get; private set; }
     [HideInInspector] public SkillExecutor skillExecutor { get; private set; }
+
+    #region Event
     public event DeadEvent onDead;
     public delegate void DeadEvent(Character character);
+
+    public event HPChangedEvent onHPChanged;
+    public delegate void HPChangedEvent(Character character, int currentHP, int maxHP);
+    #endregion
     #endregion
 
     [Header("Description")]
@@ -27,7 +33,19 @@ public class Character : MonoBehaviour
         }
         private set
         {
-            currentHP = (int)Mathf.Clamp(value, 0, derivedStats.GetDerived(DerivedType.MaxHp));
+            int maxHP = (int)derivedStats.GetDerived(DerivedType.MaxHp);
+
+            int newHP = Mathf.Clamp(value, 0, maxHP);
+
+            if (currentHP == newHP) return;
+
+            currentHP = newHP;
+
+            onHPChanged?.Invoke(
+                this,
+                currentHP,
+                maxHP
+            );
         }
     }
     [SerializeField] int skillPoints = 0;
@@ -95,6 +113,7 @@ public class Character : MonoBehaviour
         if (IsDead)
         {
             onDead?.Invoke(this);
+            gameObject.SetActive(false);
             Debug.Log(gameObject.name + " Dead");
         }
     }

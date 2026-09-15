@@ -2,18 +2,20 @@ using UnityEngine;
 
 public class DefeatState : IBattleState
 {
-    readonly BattleUI battleUI;
+    readonly BattleFlow battleFlow;
 
-    public DefeatState(BattleUI battleUI)
+    public DefeatState(BattleFlow battleFlow)
     {
-        this.battleUI = battleUI;
+        this.battleFlow = battleFlow;
     }
 
     public void Enter()
     {
         Debug.Log("Defeat!");
-        GlobalManager.Instance.QuestManager.CompleteQuest();
-        battleUI.ShowDefeatPanel();
+
+        GlobalManager.Instance.SetBattleResult(BattleResult.Defeat);
+
+        battleFlow.GoToMainMenu();
     }
 
     public void Update()

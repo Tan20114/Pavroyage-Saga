@@ -2,18 +2,20 @@ using UnityEngine;
 
 public class VictoryState : IBattleState
 {
-    readonly BattleUI battleUI;
+    readonly BattleFlow battleFlow;
 
-    public VictoryState(BattleUI battleUI)
+    public VictoryState(BattleFlow battleFlow)
     {
-        this.battleUI = battleUI;
+        this.battleFlow = battleFlow;
     }
 
     public void Enter()
     {
         Debug.Log("Victory!");
-        GlobalManager.Instance.QuestManager.CompleteQuest();
-        battleUI.ShowVictoryPanel();
+
+        GlobalManager.Instance.SetBattleResult(BattleResult.Victory);
+
+        battleFlow.GoToMainMenu();
     }
 
     public void Update()

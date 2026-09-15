@@ -22,6 +22,7 @@ public class QuestBoard : MonoBehaviour
         QuestManager questManager = GlobalManager.Instance.QuestManager;
 
         questManager.QuestConfirmed += RefreshBoard;
+        questManager.NewDayStarted += RefreshBoard;
 
         RefreshBoard();
     }
@@ -30,7 +31,10 @@ public class QuestBoard : MonoBehaviour
     {
         if (GlobalManager.Instance != null && GlobalManager.Instance.QuestManager != null)
         {
-            GlobalManager.Instance.QuestManager.QuestConfirmed -= RefreshBoard;
+            QuestManager questManager = GlobalManager.Instance.QuestManager;
+
+            questManager.QuestConfirmed -= RefreshBoard;
+            questManager.NewDayStarted -= RefreshBoard;
         }
     }
 
@@ -77,8 +81,7 @@ public class QuestBoard : MonoBehaviour
         if (selectedQuest == null)
             return;
 
-        bool confirmed =
-            GlobalManager.Instance.QuestManager.ConfirmQuest(selectedQuest);
+        bool confirmed = GlobalManager.Instance.QuestManager.ConfirmQuest(selectedQuest);
 
         if (confirmed)
         {

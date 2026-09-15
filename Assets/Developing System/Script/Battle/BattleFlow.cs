@@ -48,7 +48,7 @@ public class BattleFlow : MonoBehaviour
             {
                 if (slot.childCount == 0)
                 {
-                    GameObject enemyInstance = Instantiate(enemy, slot.position, Quaternion.identity, slot);
+                    GameObject enemyInstance = Instantiate(enemy, slot.position, slot.rotation, slot);
                     Monster monster = enemyInstance.GetComponent<Monster>();
 
                     monster.Initialize();

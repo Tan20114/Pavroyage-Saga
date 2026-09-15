@@ -12,6 +12,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField] List<Player> playerCharacters;
     public List<Player> PlayerCharacter => playerCharacters;
     [SerializeField] List<Monster> monsterCharacters;
+    public List<Monster> MonsterCharacters => monsterCharacters;
     List<Character> AllCharacter
     {
         get { return playerCharacters.Cast<Character>().Concat(monsterCharacters.Cast<Character>()).ToList(); }
@@ -22,6 +23,20 @@ public class BattleManager : MonoBehaviour
     [SerializeField] TargetSelectionInputHandler targetSelectionInputHandler;
     PlayerTurnController playerTurnController;
     BattleFlow battleFlow;
+
+    Character turnOwner;
+    public Character TurnOwner
+    {
+        get
+        {
+            return turnOwner;
+        }
+
+        private set
+        {
+            turnOwner = value;
+        }
+    }
 
     private void Awake()
     {
@@ -94,13 +109,13 @@ public class BattleManager : MonoBehaviour
     {
         if (IsMonsterDefeated())
         {
-            stateMachine.ChangeState(new VictoryState(battleUI));
+            stateMachine.ChangeState(new VictoryState(battleFlow));
             return true;
         }
 
         if (IsPlayerDefeated())
         {
-            stateMachine.ChangeState(new DefeatState(battleUI));
+            stateMachine.ChangeState(new DefeatState(battleFlow));
             return true;
         }
 
@@ -136,6 +151,11 @@ public class BattleManager : MonoBehaviour
         turnManager.AddCharacter(character);
 
         stateMachine.ChangeState(new BattleNewRoundState(turnManager, AllCharacter));
+    }
+
+    public void SetTurnOwner(Character character)
+    {
+        TurnOwner = character;
     }
     #endregion
 }

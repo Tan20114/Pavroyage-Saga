@@ -8,7 +8,9 @@ public enum GuildState
     Shop,
     Questboard,
     GuildMaster,
-    Room
+    Room,
+    VictoryResult,
+    DefeatResult
 }
 
 public class GuildManager : MonoBehaviour
@@ -56,6 +58,11 @@ public class GuildManager : MonoBehaviour
     public void GoToRoom()
     {
         guildFlow.ChangeState(GuildState.Room);
+    }
+
+    public void StartGame()
+    {
+        guildFlow.StartGame();
     }
 
     public void ExitGame()

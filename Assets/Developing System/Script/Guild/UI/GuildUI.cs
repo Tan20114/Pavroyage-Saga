@@ -8,7 +8,8 @@ public class GuildUI : MonoBehaviour
 
     void LateUpdate()
     {
-        if (GuildManager.Instance.guildState == GuildState.Room || GuildManager.Instance.guildState == GuildState.MainMenu)
+        if (GuildManager.Instance.guildState == GuildState.Room || GuildManager.Instance.guildState == GuildState.MainMenu ||
+            GuildManager.Instance.guildState == GuildState.VictoryResult || GuildManager.Instance.guildState == GuildState.DefeatResult)
         {
             foreach(GameObject item in leftRightTab)
             {
@@ -45,5 +46,15 @@ public class GuildUI : MonoBehaviour
     public void CloseInventoryTab()
     {
         inventoryTab.SetActive(false);
+    }
+
+    public void OpenResult(GameObject result)
+    {
+        result.SetActive(true);
+    }
+
+    public void CloseResult()
+    {
+        GlobalManager.Instance.QuestManager.CompleteQuest();
     }
 }

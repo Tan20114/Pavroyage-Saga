@@ -7,8 +7,6 @@ public class BattleUI : MonoBehaviour
 
     [Header("Player UI")]
     [SerializeField] GameObject playerUIPanel;
-    [SerializeField] GameObject VictoryPanel;
-    [SerializeField] GameObject DefeatPanel;
     [SerializeField] GameObject baseActionPanel;
     [SerializeField] GameObject skillPanel;
     [SerializeField] GameObject targetSelectionPanel;
@@ -45,16 +43,6 @@ public class BattleUI : MonoBehaviour
         baseActionPanel.SetActive(false);
         skillPanel.SetActive(false);
         targetSelectionPanel.SetActive(false);
-    }
-
-    public void ShowVictoryPanel()
-    {
-        VictoryPanel.SetActive(true);
-    }
-
-    public void ShowDefeatPanel()
-    {
-        DefeatPanel.SetActive(true);
     }
 
     public void OnSkipButton()

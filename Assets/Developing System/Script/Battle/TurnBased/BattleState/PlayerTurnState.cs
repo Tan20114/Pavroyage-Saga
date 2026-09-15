@@ -13,6 +13,7 @@ public class PlayerTurnState : IBattleState
         this.player = player;
         playerTurnController = controller;
         this.inputHandler = inputHandler;
+        BattleManager.Instance.SetTurnOwner(this.player);
     }
 
     public void Enter()

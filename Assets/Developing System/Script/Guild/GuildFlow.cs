@@ -10,15 +10,42 @@ public class GuildFlow : MonoBehaviour
     [SerializedDictionary("State", "Panel")]
     [SerializeField] SerializedDictionary<GuildState, GameObject> stateToPanel;
 
+    private void Start()
+    {
+        if (GlobalManager.Instance.LastBattleResult == BattleResult.None && !GlobalManager.Instance.IsStart)
+            ChangeState(GuildState.MainMenu);
+        else if (GlobalManager.Instance.LastBattleResult == BattleResult.None)
+            ChangeState(GuildState.GuildHub);
+        else
+        {
+            switch (GlobalManager.Instance.LastBattleResult)
+            {
+                case BattleResult.Victory:
+                    {
+                        ChangeState(GuildState.VictoryResult);
+                        break;
+                    }
+                case BattleResult.Defeat:
+                    {
+                        ChangeState(GuildState.DefeatResult);
+                        break;
+                    }
+            }
+        }
+    }
+
     public void ChangeState(GuildState state)
     {
-        sceneLoader.StateTransition((int)state);
+        if (GuildManager.Instance.guildState == state) return;
+
         GuildManager.Instance.guildState = state;
 
         foreach (var kvp in stateToPanel)
         {
             kvp.Value.SetActive(kvp.Key == state);
         }
+
+        sceneLoader.StateTransition((int)state);
     }
 
     public void GoToBattle()
@@ -26,6 +53,11 @@ public class GuildFlow : MonoBehaviour
         if (questManager.ActiveQuest == null) return;
 
         sceneLoader.SceneTransition(1);
+    }
+
+    public void StartGame()
+    {
+        GlobalManager.Instance.StartGame();
     }
 
     public void ExitGame()
@@ -36,5 +68,10 @@ public class GuildFlow : MonoBehaviour
     public void ReloadScene()
     {
         sceneLoader.SceneTransition(0);
+    }
+
+    public void CompleteQuest()
+    {
+        GlobalManager.Instance.QuestManager.CompleteQuest();
     }
 }

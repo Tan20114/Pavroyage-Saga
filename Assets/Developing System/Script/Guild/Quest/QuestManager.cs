@@ -23,6 +23,9 @@ public class QuestManager : MonoBehaviour
     public delegate void OnQuestConfirmed();
     public event OnQuestConfirmed QuestConfirmed;
 
+    public delegate void OnNewDayStarted();
+    public event OnNewDayStarted NewDayStarted;
+
     [SerializeField] List<QuestData> questPool;
 
     private void Awake()
@@ -123,6 +126,8 @@ public class QuestManager : MonoBehaviour
         completedQuestCount = 0;
 
         GenerateDailyBoard();
+
+        NewDayStarted?.Invoke();
     }
     #endregion
 
