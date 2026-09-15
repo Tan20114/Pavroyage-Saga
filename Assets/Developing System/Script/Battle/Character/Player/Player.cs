@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterDerivedStat))]
@@ -75,6 +74,8 @@ public class Player : Character
     public void Initialize(PlayerData data)
     {
         playerData = data;
+
+        name = data.characterName;
 
         baseStats.LoadData(data.stats);
 

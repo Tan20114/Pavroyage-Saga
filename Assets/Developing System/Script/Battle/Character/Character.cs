@@ -12,6 +12,8 @@ public class Character : MonoBehaviour
     [HideInInspector] public ActionExecutor actionExecutor { get; private set; }
     [HideInInspector] public SkillExecutor skillExecutor { get; private set; }
 
+    public Animator animator;
+
     #region Event
     public event DeadEvent onDead;
     public delegate void DeadEvent(Character character);

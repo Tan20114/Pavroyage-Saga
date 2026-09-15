@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,8 @@ public class BattleUI : MonoBehaviour
 
     [Header("Player UI")]
     [SerializeField] GameObject playerUIPanel;
+    [SerializeField] TextMeshProUGUI playerNameTxt;
+    [SerializeField] TextMeshProUGUI hpTxt;
     [SerializeField] GameObject baseActionPanel;
     [SerializeField] GameObject skillPanel;
     [SerializeField] GameObject targetSelectionPanel;
@@ -73,5 +76,10 @@ public class BattleUI : MonoBehaviour
         skillPanel.SetActive(false);
         turnController.SelectSkill(index);
         targetSelectionPanel.SetActive(true);
+    }
+    public void PlayerTurn(Player player)
+    {
+        playerNameTxt.text = player.name + " turn";
+        hpTxt.text = "HP : " + player.CurrentHP + "/" + player.derivedStats.GetDerived(DerivedType.MaxHp);
     }
 }

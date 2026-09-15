@@ -4,6 +4,7 @@ public class SkipAction : IBattleAction
 {
     readonly Player user;
     public bool EndsTurn => true;
+    public string AnimationState => "";
 
     public SkipAction(Player user)
     {

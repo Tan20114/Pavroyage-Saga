@@ -131,6 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Monster
   derivedStats: {fileID: 0}
   baseStats: {fileID: 0}
+  animator: {fileID: 4725368637682793939}
   characterName: Ziddick, The goblin king
   currentHP: 0
   skillPoints: 0

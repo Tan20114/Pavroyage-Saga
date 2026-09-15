@@ -5,6 +5,7 @@ public class AttackAction : IBattleAction
     readonly Character attacker;
     readonly Character target;
     public bool EndsTurn => true;
+    public string AnimationState => "Attack";
 
     public AttackAction(Character attacker, Character defender)
     {

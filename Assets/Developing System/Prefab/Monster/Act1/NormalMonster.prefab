@@ -131,6 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Monster
   derivedStats: {fileID: 0}
   baseStats: {fileID: 0}
+  animator: {fileID: 2429168150023696155}
   characterName: Normal
   currentHP: 0
   skillPoints: 0
@@ -335,6 +336,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7528116376deece43bc604f8ad2d58b2, type: 3}
+--- !u!95 &2429168150023696155 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 7528116376deece43bc604f8ad2d58b2, type: 3}
+  m_PrefabInstance: {fileID: 8132575301753000586}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8599077423849878881 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7528116376deece43bc604f8ad2d58b2, type: 3}

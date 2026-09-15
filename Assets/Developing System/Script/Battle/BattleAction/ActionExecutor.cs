@@ -1,5 +1,10 @@
+using System.Collections;
+using UnityEngine;
+
 public class ActionExecutor
 {
+    const float ActionDelay = 2;
+
     readonly Character owner;
 
     public ActionExecutor(Character owner)
@@ -9,8 +14,25 @@ public class ActionExecutor
 
     public void Execute(IBattleAction action)
     {
-        if (!action.CanExecute())
-            return;
+        if (!action.CanExecute()) return;
+
+        owner.StartCoroutine(ExecuteCoroutine(action));
+    }
+
+    IEnumerator ExecuteCoroutine(IBattleAction action)
+    {
+        if (owner is not Monster && 
+            action.AnimationState == "Attack" || action.AnimationState == "Skill")
+            yield return new WaitForSeconds(ActionDelay);
+
+        if (owner.animator && !string.IsNullOrEmpty(action.AnimationState))
+        {
+            owner.animator.SetTrigger(action.AnimationState);
+
+            yield return new WaitUntil(() => owner.animator.GetCurrentAnimatorStateInfo(0).IsName(action.AnimationState));
+
+            yield return new WaitUntil(() => owner.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f);
+        }
 
         action.Execute();
 

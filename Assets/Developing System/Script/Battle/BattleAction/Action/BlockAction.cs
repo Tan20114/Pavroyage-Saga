@@ -3,6 +3,7 @@ public class BlockAction : IBattleAction
     readonly Player player;
 
     public bool EndsTurn => true;
+    public string AnimationState => "";
 
     public BlockAction(Player player)
     {

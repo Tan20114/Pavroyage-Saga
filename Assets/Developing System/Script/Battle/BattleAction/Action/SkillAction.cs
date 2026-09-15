@@ -4,6 +4,7 @@ public class SkillAction : IBattleAction
     readonly Character target;
     readonly SkillData skill;
     public bool EndsTurn => true;
+    public string AnimationState => "";
 
     public SkillAction(Character user, Character target, SkillData skill)
     {

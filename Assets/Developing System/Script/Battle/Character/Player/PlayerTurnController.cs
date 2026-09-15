@@ -34,6 +34,7 @@ public class PlayerTurnController
         CreateAction();
         inputHandler.onTargetConfirmed += ConfirmTarget;
 
+        battleUI.PlayerTurn(player);
         battleUI.OpenPlayerPanel();
     }
 

@@ -131,6 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Monster
   derivedStats: {fileID: 0}
   baseStats: {fileID: 0}
+  animator: {fileID: 4822289834312679212}
   characterName: Tank
   currentHP: 0
   skillPoints: 0
@@ -378,5 +379,10 @@ PrefabInstance:
 --- !u!4 &1444560205866263894 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9398d9d474cdf3342a05dfae33a94585, type: 3}
+  m_PrefabInstance: {fileID: 1406990775936320189}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4822289834312679212 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 9398d9d474cdf3342a05dfae33a94585, type: 3}
   m_PrefabInstance: {fileID: 1406990775936320189}
   m_PrefabAsset: {fileID: 0}

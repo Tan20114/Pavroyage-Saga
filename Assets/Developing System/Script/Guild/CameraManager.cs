@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Unity.Cinemachine;
-using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 
 public class CameraManager : MonoBehaviour
