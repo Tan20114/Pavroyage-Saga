@@ -17,6 +17,11 @@ public class SceneLoader : MonoBehaviour
         StartCoroutine(LoadSceneCoroutine(index));
     }
 
+    public void ExitGame()
+    {
+        StartCoroutine(ExitGameCoroutine());
+    }
+
     IEnumerator LoadSceneCoroutine(int index)
     {
         transition.TransitionOutScene(index);

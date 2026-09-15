@@ -8,12 +8,14 @@ public class QuestCard : MonoBehaviour
     QuestData questData;
 
     Button questCardButton;
-    TextMeshProUGUI questName;
+    Image questCardSprite;
+    [SerializeField] Image[] difficultyStar;
+    [SerializeField] Sprite[] starSprites;
 
     private void Awake()
     {
         questCardButton = GetComponent<Button>();
-        questName = GetComponentInChildren<TextMeshProUGUI>();
+        questCardSprite = GetComponent<Image>();
     }
 
     public void Initialize(QuestBoard questBoard)
@@ -26,11 +28,17 @@ public class QuestCard : MonoBehaviour
         this.questData = questData;
 
         // Update UI
-        questName.text = questData.questName;
+        questCardSprite.sprite = questData.questImage;
+        for (int i = 0; i < difficultyStar.Length; i++)
+        {
+            difficultyStar[i].sprite = starSprites[(i < questData.difficulty) ? 1 : 0];
+        }
     }
 
     public void SelectQuest()
     {
+        if (GuildManager.Instance.guildState != GuildState.Questboard) return;
+
         questBoard.SelectQuest(questData);
     }
 

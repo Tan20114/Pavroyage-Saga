@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
   questName: ShroomAssault
   description: 
-  questImage: {fileID: 0}
+  questImage: {fileID: 21300000, guid: eaaa5b537b6f3484cb97ba8fccdaf73b, type: 3}
   rank: 0
   difficulty: 1
   questType: 0

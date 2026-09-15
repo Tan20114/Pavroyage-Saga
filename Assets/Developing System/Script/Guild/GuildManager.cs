@@ -7,7 +7,8 @@ public enum GuildState
     GuildHub,
     Shop,
     Questboard,
-    Guildmaster
+    GuildMaster,
+    Room
 }
 
 public class GuildManager : MonoBehaviour
@@ -39,7 +40,7 @@ public class GuildManager : MonoBehaviour
 
     public void GoToGuildMaster()
     {
-        guildFlow.ChangeState(GuildState.Guildmaster);
+        guildFlow.ChangeState(GuildState.GuildMaster);
     }
 
     public void GoToShop()
@@ -50,6 +51,16 @@ public class GuildManager : MonoBehaviour
     public void GoToQuestboard()
     {
         guildFlow.ChangeState(GuildState.Questboard);
+    }
+
+    public void GoToRoom()
+    {
+        guildFlow.ChangeState(GuildState.Room);
+    }
+
+    public void ExitGame()
+    {
+        guildFlow.ExitGame();
     }
 
     public void ReloadScene()

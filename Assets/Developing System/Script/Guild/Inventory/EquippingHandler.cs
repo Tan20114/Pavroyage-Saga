@@ -18,9 +18,11 @@ public class EquippingHandler : MonoBehaviour
     {
         if (equipment == null) return false;
 
-        EquipmentInventory inventory = inventoryManager.GetEquipmentInventory(equipment.type);
+        EquipmentInventory inventory =
+            inventoryManager.GetEquipmentInventory(equipment.type);
 
-        if (!inventory.ContainsEquipment(equipment)) return false;
+        if (!inventory.ContainsEquipment(equipment))
+            return false;
 
         PlayerData playerData = playerManager.GetPlayerData(1);
 
@@ -29,33 +31,58 @@ public class EquippingHandler : MonoBehaviour
 
         if (equipment.type == EquipmentType.Accessory)
         {
-            EquipmentSlot? accessorySlot = GetAvailableAccessorySlot(playerData);
+            EquipmentSlot? accessorySlot =
+                GetAvailableAccessorySlot(playerData);
 
-            if (!accessorySlot.HasValue) return false;
+            if (!accessorySlot.HasValue)
+                return false;
 
             slot = accessorySlot.Value;
+
+            if (!inventory.RemoveEquipment(equipment))
+                return false;
         }
         else
         {
             slot = GetEquipmentSlot(equipment.type);
 
-            playerData.equippedItems.TryGetValue(slot, out oldEquipment);
+            playerData.equippedItems.TryGetValue(
+                slot,
+                out oldEquipment
+            );
 
+            // Remove new equipment first
+            if (!inventory.RemoveEquipment(equipment))
+                return false;
+
+            // Return old equipment to inventory
             if (oldEquipment != null)
             {
-                EquipmentInventory oldInventory = inventoryManager.GetEquipmentInventory(oldEquipment.type);
+                EquipmentInventory oldInventory =
+                    inventoryManager.GetEquipmentInventory(oldEquipment.type);
 
-                if (!oldInventory.AddEquipment(oldEquipment)) return false;
+                if (!oldInventory.AddEquipment(oldEquipment))
+                {
+                    // Rollback
+                    inventory.AddEquipment(equipment);
+                    return false;
+                }
             }
         }
 
-        if (!inventory.RemoveEquipment(equipment)) return false;
-
         playerData.equippedItems[slot] = equipment;
 
-        onEquipmentChanged?.Invoke(equipment, oldEquipment);
+        onEquipmentChanged?.Invoke(
+            equipment,
+            oldEquipment
+        );
 
-        Debug.Log($"Equipped {equipment.name}" + (oldEquipment != null? $" (Replaced {oldEquipment.name})" : ""));
+        Debug.Log(
+            $"Equipped {equipment.name}" +
+            (oldEquipment != null
+                ? $" (Replaced {oldEquipment.name})"
+                : "")
+        );
 
         return true;
     }

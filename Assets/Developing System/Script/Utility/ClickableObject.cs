@@ -15,15 +15,14 @@ public class ClickableObject : MonoBehaviour
 
     private void Update()
     {
-        if (!Mouse.current.leftButton.wasPressedThisFrame)
-            return;
+        if (!Mouse.current.leftButton.wasPressedThisFrame) return;
+        if (GuildManager.Instance.guildState == GuildState.MainMenu) return;
 
         Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
 
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            if (hit.transform != transform)
-                return;
+            if (hit.transform != transform) return;
 
             onClick?.Invoke();
         }

@@ -77,25 +77,21 @@ public class InventoryUI : MonoBehaviour
     {
         ClearButtons();
 
-        foreach (Equipment equipment in initialEquipment)
+        foreach (EquipmentType type in System.Enum.GetValues(typeof(EquipmentType)))
         {
-            if (equipment == null)
-                continue;
-
             EquipmentInventory inventory =
-                inventoryManager.GetEquipmentInventory(equipment.type);
+                inventoryManager.GetEquipmentInventory(type);
 
             if (inventory == null)
                 continue;
 
-            if (!inventory.ContainsEquipment(equipment))
-                continue;
+            foreach (Equipment equipment in inventory.GetAllEquipment())
+            {
+                EquipmentButtonData button =
+                    Instantiate(buttonPrefab, buttonParent).GetComponent<EquipmentButtonData>();
 
-            EquipmentButtonData button =
-                Instantiate(buttonPrefab, buttonParent)
-                    .GetComponent<EquipmentButtonData>();
-
-            button.SetData(equipment);
+                button.SetData(equipment);
+            }
         }
     }
 

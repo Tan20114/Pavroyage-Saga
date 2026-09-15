@@ -24,7 +24,6 @@ public class TargetSelectionInputHandler : MonoBehaviour
         targetSelection.Previous();
     }
 
-
     public void OnConfirm()
     {
         Character target = targetSelection.GetTarget();

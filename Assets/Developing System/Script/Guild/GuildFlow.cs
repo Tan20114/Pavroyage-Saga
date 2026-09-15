@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class GuildFlow : MonoBehaviour
 {
+    QuestManager questManager => FindAnyObjectByType<QuestManager>();
+
     [SerializeField] SceneLoader sceneLoader;
 
     [SerializedDictionary("State", "Panel")]
@@ -21,7 +23,14 @@ public class GuildFlow : MonoBehaviour
 
     public void GoToBattle()
     {
+        if (questManager.ActiveQuest == null) return;
+
         sceneLoader.SceneTransition(1);
+    }
+
+    public void ExitGame()
+    {
+        sceneLoader.ExitGame();
     }
 
     public void ReloadScene()

@@ -17,22 +17,51 @@ public class TargetSelection
 
     public void Next()
     {
-        currentIndex++;
+        if (allMonsters.Count == 0) return;
 
-        if (currentIndex >= allMonsters.Count)
-            currentIndex = 0;
+        int startIndex = currentIndex;
+
+        do
+        {
+            currentIndex++;
+
+            if (currentIndex >= allMonsters.Count)
+                currentIndex = 0;
+
+            if (!allMonsters[currentIndex].IsDead) return;
+
+        } while (currentIndex != startIndex);
     }
 
     public void Previous()
     {
-        currentIndex--;
+        if (allMonsters.Count == 0) return;
 
-        if (currentIndex < 0)
-            currentIndex = allMonsters.Count - 1;
+        int startIndex = currentIndex;
+
+        do
+        {
+            currentIndex--;
+
+            if (currentIndex < 0)
+                currentIndex = allMonsters.Count - 1;
+
+            if (!allMonsters[currentIndex].IsDead) return;
+
+        } while (currentIndex != startIndex);
     }
 
     public Character GetTarget()
     {
+        if (allMonsters.Count == 0) return null;
+
+        if (allMonsters[currentIndex].IsDead)
+        {
+            Next();
+
+            if (allMonsters[currentIndex].IsDead) return null;
+        }
+
         return allMonsters[currentIndex];
     }
 }
