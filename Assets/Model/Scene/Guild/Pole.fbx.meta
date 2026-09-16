@@ -3,7 +3,42 @@ guid: 1d3fc463bdc09cd48988f3e6d04fff2c
 ModelImporter:
   serializedVersion: 24501
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pole
+    second: {fileID: 2100000, guid: 3abd45d3907a73842b1bf62282f1a1b3, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: DefaultMaterial_Alpha.1001
+    second: {fileID: 2800000, guid: 02e1059135f7a4d4ab0688258efa8bed, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: DefaultMaterial_BaseColor.1001
+    second: {fileID: 2800000, guid: 54f468449701b27409bf3f17f9514164, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: DefaultMaterial_Emission.1001
+    second: {fileID: 2800000, guid: b1b7843a0e464d4439431eb8e2393c63, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: DefaultMaterial_Metallic.1001
+    second: {fileID: 2800000, guid: 622758b7b3008ec4d947256d1a8e08ce, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: DefaultMaterial_Normal.1001
+    second: {fileID: 2800000, guid: add10730451458d48b031dbea241cc79, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: DefaultMaterial_Roughness.1001
+    second: {fileID: 2800000, guid: 57faf464e96d9d84ca31f8180a739ef8, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
