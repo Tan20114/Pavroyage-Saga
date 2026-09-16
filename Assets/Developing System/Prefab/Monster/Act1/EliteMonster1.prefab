@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53a7836424e46624aaacbd039410e65e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
-  baseStats: {fileID: 11400000, guid: fa8963ac05940e146afe64ca875404b6, type: 2}
+  baseStats: {fileID: 11400000, guid: c65d51c8d58971145948790c3685d089, type: 2}
   level: 0
   stats:
     STR: 0

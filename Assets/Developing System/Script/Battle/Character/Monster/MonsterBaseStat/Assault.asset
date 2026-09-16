@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Assault
   m_EditorClassIdentifier: Assembly-CSharp::CharacterStatData
   stats:
-    STR: 10
-    DEX: 10
-    CON: 3
-    INT: 1
-    LCK: 5
+    STR: 15
+    DEX: 19
+    CON: 15
+    INT: 0
+    LCK: 40
     CHA: 0

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterStatData
   stats:
     STR: 5
-    DEX: 10
-    CON: 3
-    INT: 1
+    DEX: 15
+    CON: 18
+    INT: 0
     LCK: 5
-    CHA: 5
+    CHA: 0

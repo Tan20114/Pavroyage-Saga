@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Tank
   m_EditorClassIdentifier: Assembly-CSharp::CharacterStatData
   stats:
-    STR: 5
-    DEX: 3
-    CON: 10
+    STR: 17
+    DEX: 4
+    CON: 100
     INT: 0
-    LCK: 5
-    CHA: 5
+    LCK: 60
+    CHA: 0
