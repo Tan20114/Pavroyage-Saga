@@ -22,6 +22,7 @@ public enum DerivedType
 public class CharacterDerivedStat : MonoBehaviour
 {
     CharacterStats baseStats => GetComponent<CharacterStats>();
+    CommonDerivedStats baseDerivedStats = new CommonDerivedStats();
     CommonDerivedStats derivedStats = new CommonDerivedStats();
     CommonDerivedStats modifierStat = new CommonDerivedStats();
 
@@ -88,6 +89,11 @@ public class CharacterDerivedStat : MonoBehaviour
         modifierStat.armourPierce = 0;
     }
 
+    public void LoadData(CommonDerivedStats derivedStats)
+    {
+        baseDerivedStats = derivedStats;
+    }
+
     #region Stat Calculations
     public void CalculatePlayerStat()
     {
@@ -109,19 +115,19 @@ public class CharacterDerivedStat : MonoBehaviour
         int dexterity = baseStats.GetStat(StatType.DEX);
         int intelligence = baseStats.GetStat(StatType.INT);
         derivedStats.physicalDamage = strength + (0.75f * dexterity) + (0.5f * intelligence);
-        finalDerivedStat.physicalDamage = derivedStats.physicalDamage + modifierStat.physicalDamage;
+        finalDerivedStat.physicalDamage = baseDerivedStats.physicalDamage + derivedStats.physicalDamage + modifierStat.physicalDamage;
     }
 
     void CalculateMagicDamage()
     {
         int intelligence = baseStats.GetStat(StatType.INT);
         derivedStats.magicDamage = intelligence;
-        finalDerivedStat.magicDamage = derivedStats.magicDamage + modifierStat.magicDamage;
+        finalDerivedStat.magicDamage = baseDerivedStats.magicDamage + derivedStats.magicDamage + modifierStat.magicDamage;
     }
 
     void CalculateArmorPierce()
     {
-        finalDerivedStat.armourPierce = modifierStat.armourPierce;
+        finalDerivedStat.armourPierce = baseDerivedStats.armourPierce + modifierStat.armourPierce;
     }    
 
     void CalculateCriticalChance()
@@ -131,7 +137,7 @@ public class CharacterDerivedStat : MonoBehaviour
         int luck = baseStats.GetStat(StatType.LCK);
         int intelligence = baseStats.GetStat(StatType.INT);
         derivedStats.criticalChance = (0.12f * strength) + (0.15f * dexterity) + (0.25f * luck) + (0.1f * intelligence);
-        finalDerivedStat.criticalChance = derivedStats.criticalChance + modifierStat.criticalChance;
+        finalDerivedStat.criticalChance = baseDerivedStats.criticalChance + derivedStats.criticalChance + modifierStat.criticalChance;
     }
 
     void CalculateCriticalDamage()
@@ -141,14 +147,14 @@ public class CharacterDerivedStat : MonoBehaviour
         int intelligence = baseStats.GetStat(StatType.INT);
         int luck = baseStats.GetStat(StatType.LCK);
         derivedStats.criticalDamage = (0.2f * strength) + (0.15f * dexterity) + (0.1f * intelligence) + (0.35f * luck);
-        finalDerivedStat.criticalDamage = derivedStats.criticalDamage + modifierStat.criticalDamage;
+        finalDerivedStat.criticalDamage = baseDerivedStats.criticalDamage + derivedStats.criticalDamage + modifierStat.criticalDamage;
     }
 
     void CalculateSpeed()
     {
         int dexterity = baseStats.GetStat(StatType.DEX);
         derivedStats.speed = dexterity;
-        finalDerivedStat.speed = derivedStats.speed + modifierStat.speed;
+        finalDerivedStat.speed = baseDerivedStats.speed + derivedStats.speed + modifierStat.speed;
     }
 
     void CalculateOffensiveStats()
@@ -174,14 +180,14 @@ public class CharacterDerivedStat : MonoBehaviour
         int strength = baseStats.GetStat(StatType.STR);
         int constitution = baseStats.GetStat(StatType.CON);
         derivedStats.maxHP = strength + (2 * constitution);
-        finalDerivedStat.maxHP = derivedStats.maxHP + modifierStat.maxHP;
+        finalDerivedStat.maxHP = baseDerivedStats.maxHP + derivedStats.maxHP + modifierStat.maxHP;
     }
 
     void CalculatePhysicalResistance()
     {
         int constitution = baseStats.GetStat(StatType.CON);
         derivedStats.physicalResistance = 0.25f * constitution;
-        finalDerivedStat.physicalResistance = derivedStats.physicalResistance + modifierStat.physicalResistance;
+        finalDerivedStat.physicalResistance = baseDerivedStats.physicalResistance + derivedStats.physicalResistance + modifierStat.physicalResistance;
     }
 
     void CalculateMagicResistance()
@@ -189,21 +195,21 @@ public class CharacterDerivedStat : MonoBehaviour
         int intelligence = baseStats.GetStat(StatType.INT);
         int charisma = baseStats.GetStat(StatType.CHA);
         derivedStats.magicResistance = (0.25f * intelligence) + (0.25f * charisma);
-        finalDerivedStat.magicResistance = derivedStats.magicResistance + modifierStat.magicResistance;
+        finalDerivedStat.magicResistance = baseDerivedStats.magicResistance + derivedStats.magicResistance + modifierStat.magicResistance;
     }
 
     void CalculateDodgeChance()
     {
         int dexterity = baseStats.GetStat(StatType.DEX);
         derivedStats.dodgeChance = (0.125f * dexterity);
-        finalDerivedStat.dodgeChance = derivedStats.dodgeChance + modifierStat.dodgeChance;
+        finalDerivedStat.dodgeChance = baseDerivedStats.dodgeChance + derivedStats.dodgeChance + modifierStat.dodgeChance;
     }
 
     void CalculateDebuffResistance()
     {
         int charisma = baseStats.GetStat(StatType.CHA);
         derivedStats.debuffResistance = 0.1f * charisma;
-        finalDerivedStat.debuffResistance = derivedStats.debuffResistance + modifierStat.debuffResistance;
+        finalDerivedStat.debuffResistance = baseDerivedStats.debuffResistance + derivedStats.debuffResistance + modifierStat.debuffResistance;
     }
     #endregion
 
@@ -212,14 +218,14 @@ public class CharacterDerivedStat : MonoBehaviour
     {
         int constitution = baseStats.GetStat(StatType.CON);
         derivedStats.blockDamageReduction = (0.25f * constitution);
-        finalDerivedStat.blockDamageReduction = derivedStats.blockDamageReduction + modifierStat.blockDamageReduction;
+        finalDerivedStat.blockDamageReduction = baseDerivedStats.blockDamageReduction + derivedStats.blockDamageReduction + modifierStat.blockDamageReduction;
     }
 
     void CalculateAggroRateReduction()
     {
         int charisma = baseStats.GetStat(StatType.CHA);
         derivedStats.aggroRateReduction = (0.5f * charisma);
-        finalDerivedStat.aggroRateReduction = derivedStats.aggroRateReduction + modifierStat.aggroRateReduction;
+        finalDerivedStat.aggroRateReduction = baseDerivedStats.aggroRateReduction + derivedStats.aggroRateReduction + modifierStat.aggroRateReduction;
     }
     #endregion
 
@@ -245,7 +251,7 @@ public class CharacterDerivedStat : MonoBehaviour
     {
         int luck = baseStats.GetStat(StatType.LCK);
         derivedStats.discoveryRate = (0.25f * luck);
-        finalDerivedStat.discoveryRate = derivedStats.discoveryRate + modifierStat.discoveryRate;
+        finalDerivedStat.discoveryRate = baseDerivedStats.discoveryRate + derivedStats.discoveryRate + modifierStat.discoveryRate;
     }
 
     void CalculateOtherStats()

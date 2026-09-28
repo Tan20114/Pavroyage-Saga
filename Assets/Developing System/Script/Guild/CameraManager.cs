@@ -11,6 +11,8 @@ public class CameraManager : MonoBehaviour
         Right,
     }
 
+    [SerializeField] CinemachineBrain mainCam;
+    public float transitionTime => mainCam.DefaultBlend.Time;
     [SerializeField] List<CinemachineCamera> cam;
     CamState state = CamState.Center;
 

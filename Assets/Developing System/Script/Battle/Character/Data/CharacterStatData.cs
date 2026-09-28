@@ -4,4 +4,5 @@ using UnityEngine;
 public class CharacterStatData : ScriptableObject
 {
     public BaseStats stats = new BaseStats();
+    public CommonDerivedStats derivedStat = new CommonDerivedStats();
 }

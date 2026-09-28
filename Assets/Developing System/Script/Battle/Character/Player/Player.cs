@@ -78,6 +78,7 @@ public class Player : Character
         name = data.characterName;
 
         baseStats.LoadData(data.stats);
+        derivedStats.LoadData(data.stats.derivedStat);
 
         playerEquipment.LoadData(data.equippedItems);
 

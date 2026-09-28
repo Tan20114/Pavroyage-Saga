@@ -1,4 +1,5 @@
 using AYellowpaper.SerializedCollections;
+using System.Collections;
 using UnityEngine;
 
 public class GuildFlow : MonoBehaviour
@@ -6,6 +7,7 @@ public class GuildFlow : MonoBehaviour
     QuestManager questManager => FindAnyObjectByType<QuestManager>();
 
     [SerializeField] SceneLoader sceneLoader;
+    [SerializeField] CameraManager camManager;
 
     [SerializedDictionary("State", "Panel")]
     [SerializeField] SerializedDictionary<GuildState, GameObject> stateToPanel;
@@ -36,7 +38,21 @@ public class GuildFlow : MonoBehaviour
 
     public void ChangeState(GuildState state)
     {
-        if (GuildManager.Instance.guildState == state) return;
+        StartCoroutine(CamTransitionDelay(state));
+    }
+
+    IEnumerator CamTransitionDelay(GuildState state)
+    {
+        bool skipDelay = GuildManager.Instance.guildState == GuildState.MainMenu ||
+                         GuildManager.Instance.guildState == GuildState.Room ||
+                         state == GuildState.MainMenu ||
+                         state == GuildState.Room;
+
+        if (!skipDelay)
+            yield return new WaitForSeconds(camManager.transitionTime);
+
+        if (GuildManager.Instance.guildState == state)
+            yield break;
 
         GuildManager.Instance.guildState = state;
 

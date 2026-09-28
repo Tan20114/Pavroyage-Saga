@@ -17163,6 +17163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22be0f46b9f3d8e4c8ce73efe50f1a59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraManager
+  mainCam: {fileID: 757869193}
   cam:
   - {fileID: 186111179}
   - {fileID: 121865158}
@@ -21377,6 +21378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GuildFlow
   sceneLoader: {fileID: 1675878856}
+  camManager: {fileID: 1409334723}
   stateToPanel:
     _serializedList:
     - Key: 0

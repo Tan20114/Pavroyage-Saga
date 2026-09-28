@@ -78,6 +78,8 @@ public class QuestBoard : MonoBehaviour
 
     public void ConfirmQuest()
     {
+        if (GuildManager.Instance.guildState != GuildState.Questboard) return;
+
         if (selectedQuest == null)
             return;
 

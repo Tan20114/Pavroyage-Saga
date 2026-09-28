@@ -29,6 +29,7 @@ public class StatVisual : MonoBehaviour
         PlayerData playerData = playerManager.GetPlayerData(1);
 
         baseStat.LoadData(playerData.stats);
+        derivedStat.LoadData(playerData.stats.derivedStat);
         playerEquipment.LoadData(playerData.equippedItems);
     }
 
