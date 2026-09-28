@@ -31,7 +31,7 @@ public class ActionExecutor
 
             yield return new WaitUntil(() => owner.animator.GetCurrentAnimatorStateInfo(0).IsName(action.AnimationState));
 
-            yield return new WaitUntil(() => owner.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f);
+            yield return new WaitForSeconds(owner.animator.GetCurrentAnimatorStateInfo(0).length);
         }
 
         action.Execute();

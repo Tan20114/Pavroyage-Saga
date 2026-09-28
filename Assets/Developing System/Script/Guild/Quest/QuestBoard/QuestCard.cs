@@ -9,6 +9,7 @@ public class QuestCard : MonoBehaviour
 
     Button questCardButton;
     Image questCardSprite;
+    CanvasGroup canvasGroup;
     [SerializeField] Image[] difficultyStar;
     [SerializeField] Sprite[] starSprites;
 
@@ -16,6 +17,7 @@ public class QuestCard : MonoBehaviour
     {
         questCardButton = GetComponent<Button>();
         questCardSprite = GetComponent<Image>();
+        canvasGroup = GetComponent<CanvasGroup>();
     }
 
     public void Initialize(QuestBoard questBoard)
@@ -45,5 +47,6 @@ public class QuestCard : MonoBehaviour
     public void SetInteractable(bool interactable)
     {
         questCardButton.interactable = interactable;
+        canvasGroup.alpha = interactable ? 1 : 0;
     }
 }

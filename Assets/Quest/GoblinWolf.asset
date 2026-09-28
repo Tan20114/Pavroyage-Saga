@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
   questName: GoblinWolf
   description: 
-  questImage: {fileID: 0}
+  questImage: {fileID: 21300000, guid: 234f9f1dc331ea144a0b525c89e363fc, type: 3}
   rank: 0
   difficulty: 3
   questType: 0
